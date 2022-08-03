@@ -22,11 +22,11 @@ app.listen(port,()=>{
     console.log("connected")
 })
 
-const connection=async()=>{
+const start=async()=>{
    await connection(process.env.MONGO_URI)
 }
 
-connection()
+start()
 
 
 

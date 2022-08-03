@@ -1,4 +1,4 @@
-const User=require('../models/profiledetails');
+const User=require('../model/profiledetails');
 
 
 

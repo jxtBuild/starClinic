@@ -1,9 +1,9 @@
-const express=express();
+const express=require('express');
 const router=express.Router();
 const {
     postAppointment,
     getAppointments
-}=require('../controllers/AppintmentBooking')
+}=require('../controllers/AppointmentBooking')
 
 
 

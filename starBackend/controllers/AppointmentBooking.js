@@ -1,5 +1,5 @@
 //this is whre the appointment booking is done
-const appointments=require('../models/Appointment');
+const appointments=require('../model/Appointment');
 
 
 //this is where the appointment booking is done
