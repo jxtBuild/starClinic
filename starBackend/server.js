@@ -3,6 +3,7 @@ const app=express()
 const connection=require('./db/connection')
 const authRoute=require('./routers/authRoute')
 const appointmentRoute=require('./routers/bookAppointmentRoute');
+const cors=require('cors')
 const port=process.env.PORT || 5000
 require('dotenv').config()
 
@@ -10,7 +11,7 @@ require('dotenv').config()
 
 
 
-
+app.use(cors())
 app.use(express.json());
 app.use("/authentication",authRoute)
 app.use("/appointment",appointmentRoute)

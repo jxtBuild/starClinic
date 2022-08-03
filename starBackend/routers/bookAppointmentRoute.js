@@ -8,7 +8,7 @@ const {
 
 
 
-router.post('/',postAppointment)
+router.post('/page',postAppointment)
 router.get('/',getAppointments)
 
 

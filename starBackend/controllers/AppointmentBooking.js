@@ -4,7 +4,7 @@ const appointments=require('../model/Appointment');
 
 //this is where the appointment booking is done
 const postAppointment=async(req,res)=>{
-     const appointment=await appointments.create(req.body);
+     const appointment=await appointments.create({...req.body});
      try {
          if(appointment){
         res.send(`<h1>your appointment has been booked successfully</h1>`)
