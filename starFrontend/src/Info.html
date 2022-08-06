@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/output.css" rel="stylesheet">
+    <title>Info page</title>
+</head>
+<body class=" bg-slate-100 flex flex-col" onload="loadUserBookedAppointments()">
+    <!---header-->
+             <div class="bg-white flex items-center shadow-lg p-4 cursor-pointer ">
+                <!--BOOKED APPOINTMENT TITILE-->
+                <div class=" flex-1">
+                    <h4 class="p-2 cursor-pointer bg-blue-600 w-44 text-white rounded">Booked Appointment</h4>
+                </div>
+                <!--Profile details-->
+                <div class="flex items-center border-l mx-9">
+                  <h4 class="text-slate-300 m-2">mike</h4>
+                     <img
+                     class="w-10 fill-slate-200"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAnJJREFUSEvFlv0xBFEQxPsiQASIABEgAkRABogAESACRIAIEAEiQAZEQP2udq76xuzH3T83VVdXu+/t9HTPx3sjLchGC8LVPMA7kpYkbTZBv0n6ksT/YBsKvCbpTNK+pOUW79+SHiRdSPrsi6APGJBLSUd9jtL6raRTSQRTWhcwLO9NUhw8NpI+m7RIjvz87xkK0h+0sW8DBvTVZCWHsAawywgAtqvNJhhvVeAVMPI+GdNrSedJNgA2rLheLBq+Z/+xre9m2StgIj5sPgL0xJwi502Sn+VK1isDv8t1koGR+KMBQl6AokBggvzsqYxKRlbfT0Ah+7pLnoGdLfJ4TmPtp4me1sHIPezo7awQKSFt2BTrDEy0OKB66Vk3oiev2Tl7Qlb2wNqN4LcbJVZiwYE9OoYABeL22zxUa+xlwGCZjK8R1HjC+SYY0rdYlpl3Qxi/F4XnfunrcYoc2CNDkjx1Qk7eU+nkDCPHVDpWpcELdqLWLMBUtVdpysT4oPAuiPVe4D6pcYQTpIrhEc6RmO+rw6H0O0txOcOYzZH7rlHqKZzUziztFPmkNfIQgSngkXcPMtqJ/p8cqUMHCLljELSdxQFE4cEqLgWDB4hvjBEYozJAKaKcSxTIJxJB+IidatHqkPDhTnvAFnkxDnfWK6PFuDRgyEvBxQn1r83ajsWqbaqJlQPwoGOtbLO2iwAsaZuQDyfVNMvAnirWYM2A+XcR7Lr6kFMk857lGVY4jDyTX/YgNcDe2zyX964hlz0c8uPUGmK0DcHxm+uy5yCwBzxOoLYAqINOwPiwj3EFQBDUgF/oyWEru8rJPMBD5O7dszDgP/X7pB/IszboAAAAAElFTkSuQmCC" />
+                </div>
+            </div>
+            <!--end of header-->
+            <!--error message-->
+            <div class="flex justify-center p-2">
+                <div class="error  bg-red-300 w-1/2 hidden h-10 py-2 cursor-pointer sm:flex-1 justify-center m-5 text-white">
+                    
+                </div>
+            </div>
+            <!--end of error message-->
+            <!--appointment details-->
+            <div class="">
+                <div class=" ">
+                      
+                </div>
+            </div>
+            <!--end of appointment details-->
+
+        <script src="./Info.js"></script>
+        <!--AXIOS CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body>
+</html>

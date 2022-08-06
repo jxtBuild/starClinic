@@ -23,10 +23,16 @@ app.listen(port,()=>{
     console.log("connected")
 })
 
-const start=async()=>{
-   await connection(process.env.MONGO_URI)
-}
 
+const start=async()=>{
+    try
+    {
+      await connection(process.env.MONGO_URI)
+    }
+    catch(error){
+      console.log("an error occured with the database");
+    }
+}
 start()
 
 

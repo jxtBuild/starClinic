@@ -15,11 +15,8 @@ async function postData(){
     let phone=phoneNumber.value
     let date=dateTime.value
     const data={name,email,phone,date} //creating an object for the data values
-         await axios.post('http://localhost:5000/appointment/page',data)
+        await axios.post('http://localhost:5000/appointment/page',data)
          .then((res)=>{
-             if(res){
-               //window.location.href
-             }
          })
          .catch((err)=>{
             console.log('an error occured')
