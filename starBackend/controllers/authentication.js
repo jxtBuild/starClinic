@@ -1,14 +1,19 @@
-const User=require('../model/profiledetails');
+const Profile=require('../model/profiledetails');
 
 
 
 const register=async (req,res)=>{
-    res.send('registered')
-    console.log(req.body)
+    const data={...req.body}
+    Profile.create(data)
+    res.send(data.firstname)
 }
 
 const login=async (req,res)=>{
-   res.send('logged in')
+    const data={...req.body};
+   const request=Profile.find(data.email)
+   if(request){
+    console.log("found")
+   }
 }
 
 

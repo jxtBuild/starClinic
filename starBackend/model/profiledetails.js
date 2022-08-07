@@ -2,36 +2,31 @@ const mongoose=require('mongoose')
 const bcrypt=require('bcryptjs');
 
 
-const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please provide name'],
-    minlength: 3,
-    maxlength: 50,
-  },
-  username:{
+const ProfileSchema=new mongoose.Schema({
+  firstname:{
     type:String,
-    required:[true,'please provide your username'],
-    minlength:5,
-    unique:true,
+    required:[true,'please provide a name']
   },
-  email: {
-    type: String,
-    unique: true,
-    required: [true, 'Please provide email'],
+  lastname:{
+    type:String,
+    required:[true,'please provide your lastname'],
   },
-  password: {
-    type: String,
-    required: [true, 'Please provide password'],
-    minlength: 6,
+  email:{
+    type:String,
+    uinque:true,
+    required:[true,'please provide your password']
   },
-});
-
+  password:{
+    type:String,
+    required:[true,'please provide your password'],
+    minlength:6
+  }
+})
 //hashing of the password is done here
-UserSchema.pre('save',async function (){
+ProfileSchema.pre('save',async function (){
   const salt=await bcrypt.genSalt(10);
   this.password=await bcrypt.hash(this.password,salt);
 })
 
 
-module.exports=mongoose.model('User',UserSchema)
+module.exports=mongoose.model('Profile',ProfileSchema)
