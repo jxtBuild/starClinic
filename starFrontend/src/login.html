@@ -7,12 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
   <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <title>StarClinic</title>
 </head>
 <body style="background-image: url('./img/bg.webp');">
-
-
     <div class="2xl:container max-h-screen m-auto scroll-auto"  x-data="app">
-        
         <div class="relative h-full ml-auto lg:w-6/12">
             <div class="m-auto py-12 px-6 sm:p-20 xl:w-10/12">
                 <div class="space-y-4">
@@ -25,8 +23,7 @@
                 <div class="mt-12 grid gap-6 sm:grid-cols-2 ">
                     <button class="py-3 px-6 rounded-xl bg-blue-100 hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200">
                         <div class="flex gap-4 justify-center">
-                            
-                            <a href="https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&flowName=GlifWebSignIn&flowEntry=AddSession"><i class='bx bxl-google text-2xl  mx-8'></i><span class="block w-max font-medium tracking-wide text-sm text-blue-700">with  Google</span></a>
+                             <a href="https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&flowName=GlifWebSignIn&flowEntry=AddSession"><i class='bx bxl-google text-2xl  mx-8'></i><span class="block w-max font-medium tracking-wide text-sm text-blue-700">with  Google</span></a>
                         </div>
                     </button>
                     <button class="py-3 px-6 rounded-xl bg-gray-900 transition hover:bg-gray-800 active:bg-gray-600 focus:bg-gray-700">
@@ -53,27 +50,32 @@
                             >
                         </div>
 
-                        <div class="flex flex-col items-end  mt-3">
+                        <div class="flex flex-col   mt-3">
                             <input  type="password" placeholder="Password" class="Lpassword w-full py-3 px-6 ring-1 ring-gray-300 rounded-xl placeholder-gray-600 bg-transparent transition disabled:ring-gray-200 disabled:bg-gray-100 disabled:placeholder-gray-400 invalid:ring-red-400 focus:invalid:outline-none">
+                            <div class="flex mt-3">
+                                <input type="checkbox" class="passwordCheck"/>
+                                <p class="m-2">View Password</p>
+                            </div>
                             <a href="#">
                                 <button type="reset" class="w-max p-3 -mr-3">
                                     <span class="text-sm tracking-wide text-blue-600">Forgot password ?</span>
                                 </button>
-                            </a>    
+                            </a>
                         </div>
                     </div>  
                     <div class="flex">
                         <button
-                            class="Lbutton w-1/2 rounded-2xl border-b-4 border-b-blue-600 bg-blue-500 
-                            p-3 font-bold text-white hover:bg-blue-400 active:translate-y-[0.125rem]
+                            class="Lbutton w-1/2 rounded-2xl border-b-4 bg-blue-500 
+                            p-3 font-bold text-white hover:bg-blue-400 
                              active:border-b-blue-400
                              mr-1
+                           
                              "
                              >
                             LOG IN
                         </button>
                         <button type="button" @click="isLoginPage = true" x-show="!isLoginPage"
-                            class="w-1/2 rounded-2xl border-b-2 border-b-gray-300 bg-white py-3 px-4 font-bold text-blue-500 ring-2 ring-gray-300 hover:bg-gray-200 active:translate-y-[0.125rem] active:border-b-gray-200">
+                            class="w-1/2 rounded-2xl   bg-white p-3 font-bold text-blue-500 ring-2 ring-gray-300 hover:bg-gray-200 ">
                            CLICK HERE TO SIGN UP
                         </button>
                     </div>

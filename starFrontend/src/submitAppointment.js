@@ -3,6 +3,8 @@ const customerEmail=document.querySelector('.customerEmail') //selecting the ema
 const phoneNumber=document.querySelector('.phoneNumber')  //selecting the phoneNumber
 const dateTime=document.querySelector('.dateTime') //selecting the date value
 const formDom=document.querySelector('.form'); //selecting the form
+const doctorname=document.querySelector('.doctorName');//for doctor value
+//const service=documnet.querySelector()
 const submitButton=document.querySelector('.submitButton') //selecting the form submitting button
 
 
@@ -14,7 +16,8 @@ async function postData(){
     let email=customerEmail.value
     let phone=phoneNumber.value
     let date=dateTime.value
-    const data={name,email,phone,date} //creating an object for the data values
+    let doctor=doctorname.value
+    const data={name,email,phone,date,doctor} //creating an object for the data values
        await axios.post('http://localhost:5000/appointment/page',data)
          .then((res)=>{
          })

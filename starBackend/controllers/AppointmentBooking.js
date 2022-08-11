@@ -4,7 +4,7 @@ const appointments=require('../model/Appointment');
 
 //this is where the appointment booking is done
 const postAppointment=async(req,res)=>{
-   const data={name,email,number,date}={...req.body}
+   const data={name,email,number,date,doctor}={...req.body}
    console.log(data)
 }
     

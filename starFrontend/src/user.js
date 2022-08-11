@@ -3,12 +3,16 @@ const login_button=document.querySelector('.Lbutton')
 let Login_email=document.querySelector(".Lemail")
 let Login_password=document.querySelector(".Lpassword");
 let User=document.querySelector('.name')
+const passwordCheck=document.querySelector(".passwordCheck");
 
 login_button.addEventListener("click",()=>{
     email=Login_email.value
     password=Login_password.value
     const data={email,password}
     axios.post("http://localhost:5000/authentication/login",data)
+    .then((res)=>{
+           window.location.href="./Info.html"
+     })
      .catch((err)=>{
           console.log("an error occured")
      })
