@@ -13,7 +13,7 @@ const postAppointment=async(req,res)=>{
 
 //this is will help us get the all the  booked appointments
 const getAppointments=async(req,res)=>{
-  
+   console.log(req.user)
 }
 
 

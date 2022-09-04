@@ -6,7 +6,7 @@ const appointmentRoute=require('./routers/bookAppointmentRoute');
 const cors=require('cors')
 const port=process.env.PORT || 5000
 require('dotenv').config()
-
+const verifyUser=require('./middleware/authentication'); //authentication middleware
 
 
 
@@ -14,7 +14,7 @@ require('dotenv').config()
 app.use(cors())
 app.use(express.json());
 app.use("/authentication",authRoute)
-app.use("/appointment",appointmentRoute)
+app.use("/appointment",verifyUser,appointmentRoute)
 
 
 

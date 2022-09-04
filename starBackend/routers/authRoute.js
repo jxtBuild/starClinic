@@ -9,7 +9,7 @@ const verifyUser=require('../middleware/authentication')
 
 router.post("/register",register);
 router.post("/login",login);
-router.get("/dashboard",verifyUser,dashboard); 
+
 
 
 

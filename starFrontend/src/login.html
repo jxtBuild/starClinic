@@ -9,14 +9,13 @@
   <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
     <title>StarClinic</title>
 </head>
-<body style="background-image: url('./img/bg.webp');">
-    <div class="2xl:container max-h-screen m-auto scroll-auto"  x-data="app">
+<body>
+    <!--style="background-image:url('./img/bg.webp')"-->
+    <div class="2xl:container max-h-screen m-auto scroll-auto md:scroll-auto"  x-data="app">
         <div class="relative h-full ml-auto lg:w-6/12">
             <div class="m-auto py-12 px-6 sm:p-20 xl:w-10/12">
                 <div class="space-y-4">
-                    <a href="">
                         <img src="./img/starClinic.jpg" class="w-40" alt="tailus logo">
-                    </a>
                     <p class="font-medium text-lg text-sky-600">Welcome to StarClinic ! Login first</p>
                 </div>
                 
@@ -40,7 +39,7 @@
                 
                 <!--Login Content-->
 
-                <div x-show="!isLoginPage" class="space-y-4 mt-3">
+                <div x-show="!isLoginPage" class="space-y-4 mt-3 scroll-auto">
                     <div> 
                         <div>
                             <input 

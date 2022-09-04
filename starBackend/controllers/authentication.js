@@ -3,14 +3,27 @@ const jwt=require('jsonwebtoken');
 
 
 const register=async (req,res)=>{
-   
+  const user=Profile.create({...req.body})
+  const token=jwt.sign({User_id:user._id,firstname:user.firstname},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRY})
+   res.status(200).json({msg:"user created",token,user})
 }
 
 const login=async (req,res)=>{
-    const {username,password}=req.body
-    const id=new Date().getDate();
-    const token=jwt.sign({id,username},process.env.JWT_SECRET,{expiresIn:'2d'})
-    res.status(200).json({msg:"user created",token})
+    const {email,password}=req.body
+    if(!email || !password){
+        return res.status(400).json({msg:"please provide all the details"})
+    }
+    const user=await Profile.findOne({email})
+    if(!user || !password){
+        return res.status(400).json({msg:"user not found"})
+    }
+    const passwordMatch=await user.comparePassword(password);
+    res.json({msg:"you are logged in",user,passwordMatch,password})
+    if(!passwordMatch){
+       return res.status(400).json({msg:"password is incorrect"})
+     }
+  const token=user.createToken()
+ res.status(200).json({user:{firstname:user.firstname},token})
 }
 
 const dashboard=async(req,res)=>{

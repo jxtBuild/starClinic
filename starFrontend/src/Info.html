@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
-    <title>Info page</title>
+    <title>Appointments Page</title>
+    <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
 </head>
 <body class=" bg-slate-100 flex flex-col" onload="loadUserBookedAppointments()">
     <!---header-->
@@ -26,7 +27,7 @@
             <!--error message-->
             <div class="flex justify-center p-2 m-4">
                 <div class="error hidden flex-col flex-1 justify-center items-center">
-                     <h4 class="errorMessage flex bg-red-300 w-1/2 h-5 p-2 cursor-pointer flex-1 justify-center m-1 text-white"></h4>
+                     <h4 class="errorMessage rounded flex bg-red-300 w-1/2 h-5 p-2 cursor-pointer flex-1 justify-center m-1 text-white"></h4>
                      <button class="reloadbutton bg-blue-600 text-white px-4 py-1 rounded">RELOAD</button>
                 </div>
             </div>
@@ -37,7 +38,7 @@
                   <h4>List of Appointments</h4>
                 </div>
                 <div class="p-3 flex justify-end">
-                    <p class="p-1 text-xs bg-gray-100 flex-1 flex justify-end cursor-pointer">Number:<span class="px-1 cursor-pointer numberAppointment"> 5 </span></p>
+                    <p class="p-1 text-xs bg-gray-100 flex-1 flex justify-end cursor-pointer">Number:<span class="px-1 cursor-pointer numberAppointment"> 0 </span></p>
                 </div>
                 <!--Table for the appointments-->
                 <div class="table w-full">

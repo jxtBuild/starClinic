@@ -7,14 +7,17 @@
   <link href="../dist/output.css" rel="stylesheet">
   <!--FlatPickr-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <title>Home Page</title>
+  <title>STAR CLINIC</title>
+    <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
 </head>
 <body>
-    <nav class="relative container flex flex-col items-center mx-auto p-6 md:flex-row">
+    <nav class="relative container flex  justify-between items-center mx-auto p-6 md:flex-row">
+      <!--took out flex-col-->
         <!--Flex container-->
-        <div class="flex items-center justify-between">
-           <h2 class="max-w-md text-4xl font-bold text-center text-sky-300 md:text-left md:mb-3">Star Clinic</h2>
+        <div class="flex flex-1 md:justify-between items-center justify-between"> 
+           <h2 class="max-w-md text-4xl font-bold text-center text-sky-300 md:text-left md:mb-3 flex-1 flex cursor-pointer">Star Clinic</h2>
         </div> 
+          <button class="bg-blue-500 text-white px-4 py-1 rounded font-bold signButton">LOGIN</button>
     </nav>
     
     <!--Hero-->
@@ -67,7 +70,7 @@
            
         </div>
     </section>
-    <section class=" bg-no-repeat bg-cover  max-h-full   " style="background-image: url('img/background2-blue1.png');">
+    <section class=" bg-no-repeat bg-cover  max-h-full   " style="background-image: url('./img/blue.jpg');">
         <h2 class="text-4xl font-bold text-center  mt-4 md:mt-4">
             WHAT WE OFFER.
           </h2>
@@ -125,7 +128,7 @@
 
     <!--About US-->
     <!--Testimonials-->
-    <section class=" bg-no-repeat bg-cover  max-h-full   " style="background-image: url('img/background1.png');">
+    <section class=" bg-no-repeat bg-cover  max-h-full   " style="background-image: url('./img/ping.jpg');">
            <!-- Container to heading and testm blocks -->
         <div class="max-w-6xl px-5 mx-auto mt-32 text-center">
             <!-- Heading -->
@@ -213,12 +216,16 @@
                         </div>
                         <label for="countries" class="block mb-2 text-md font-medium text-gray-900">Select an option</label>
                         <select id="countries"
-                          class="">
+                          class="selectOption">
                           <option selected>Choose Service</option>
-                          <option value="US"></option>
-                          <option value="CA"></option>
-                          <option value="FR"></option>
-                          <option value="DE"></option>
+                          <option value="RADIOLOGY">RADIOLOGY</option>
+                          <option value="CARDIOLOGY">CARDIOLOGY</option>
+                          <option value="ENDOSCOPY">ENDOSCOPY</option>
+                          <option value="CLINICAL">CLINICAL</option>
+                          <option value="THEATRE & SURGERY">THEATRE & SURGERY</option>
+                          <option value="OPTICAL">OPTICAL</option>
+                          <option value="Labour ward & Delivery">Labour ward & Delivery</option>
+                          <option value="Labe Service">Lab Services</option>
                         </select>
                         <!--DatePicker using Bootstrap-->
                             <h2 class="mt-10 text-sm">What date and time works best for ?</h2>
@@ -239,36 +246,39 @@
     </section>
      <!--Map section of the page used google map generator-->
      <div class="flex justify-center m-4">
-          <div class="mapouter">
-            <div class="gmap_canvas"><iframe width="876" height="704" id="gmap_canvas"
-                src="https://maps.google.com/maps?q=Pantang%20hos&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br>
-              <style>
-                .mapouter {
-                  position: relative;
-                  text-align: right;
-                  height: 704px;
-                  width: 876px;
-                }
-              </style><a href="https://www.embedgooglemap.net"></a>
-              <style>
-                .gmap_canvas {
-                  overflow: hidden;
-                  background: none !important;
-                  height: 704px;
-                  width: 876px;
-                }
-              </style>
-            </div>
+        <div class="mapouter">
+          <div class="gmap_canvas"><iframe width="1080" height="500" id="gmap_canvas"
+              src="https://maps.google.com/maps?q=oyarifa%20kuottam&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+              scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+              href="https://www.whatismyip-address.com/divi-discount/">divi discount</a><br>
+            <style>
+              .mapouter {
+                position: relative;
+                text-align: right;
+                height: 500px;
+                width: 1080px;
+              }
+            </style><a href="https://www.embedgooglemap.net">website google maps</a>
+            <style>
+              .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 500px;
+                width: 1080px;
+              }
+            </style>
           </div>
+        </div>
      </div>
      <!--map section ends here-->
+      <!--CONTACT US -->
+      <!--CONTACT US-->
       <!--Footer section of the page-->
       <footer class="p-4 bg-white sm:p-6 dark:bg-gray-900">
          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
         <div class="sm:flex sm:items-center sm:justify-between flex  justify-end items-center">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#"
-              class="hover:underline text-lg">StarClinic™</a>. All Rights Reserved.
+          <span class="text-sm text-gray-500 sm:text-center flex items-center cursor-pointer dark:text-gray-400">© 2022 <p
+              class="hover:underline text-lg">StarClinic™</p>. All Rights Reserved.
           </span>
         </div>
       </footer>
@@ -293,5 +303,19 @@
     <!--js-->
     <script src="./index.js"></script>
     <script src="./submitAppointment.js"></script>
+    <!--Start of Tawk.to Script-->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/63147d5137898912e9671892/1gc40j29n';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>
