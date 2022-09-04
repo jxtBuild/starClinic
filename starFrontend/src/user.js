@@ -11,7 +11,7 @@ login_button.addEventListener("click",()=>{
     const data={email,password}
     axios.post("http://localhost:5000/authentication/login",data)
     .then((res)=>{
-           window.location.href="./Info.html"
+          // window.location.href="./Info.html"
      })
      .catch((err)=>{
           console.log("an error occured")
@@ -34,7 +34,7 @@ Sign_button.addEventListener("click",()=>{
    const data={firstname,lastname,email,password}
    axios.post("http://localhost:5000/authentication/register",data)
    .then((res)=>{
-         console.log(res.data)
+         
    })
    .catch((err)=>{
       console.log("an error occured");

@@ -5,7 +5,7 @@ const {
     getAppointments,
     updateAppointment
 }=require('../controllers/AppointmentBooking')
-
+const verifyUser=require('../middleware/authentication')
 
 
 

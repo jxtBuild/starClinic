@@ -22,6 +22,12 @@ const appointmentSchema=new mongoose.Schema({
         type:Date,
         required:true,
     },
+    doctor:{
+        type:String
+    },
+    status:{
+       default:"Pending"
+    },
     createdAT:{
         type:Date,
         default:Date.now()
