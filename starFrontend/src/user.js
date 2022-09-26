@@ -1,11 +1,38 @@
+let Login_password=document.querySelector('.L_password');
+let passwordCheck=document.querySelector(".passwordCheck");
+let button=document.getElementById("loginButton")
+
+//View Password functionality
+passwordCheck.addEventListener("click",()=>{
+     if(Login_password.type==="password"){
+      Login_password.type="text"
+     }else{
+      Login_password.type="password"
+     }
+     
+})
+
+
+//disable button functionality
+
+
+
+
 //login function 
 const login_button=document.querySelector('.Lbutton')
 let Login_email=document.querySelector(".Lemail")
-let Login_password=document.querySelector(".Lpassword");
 let User=document.querySelector('.name')
-const passwordCheck=document.querySelector(".passwordCheck");
+
+//const disableFunction=()=>{
+//    if(Login_email.value==="" & Login_password.value===""){
+//      button.disabled=true
+//    }
+//}
+//
+//disableFunction()
 
 login_button.addEventListener("click",()=>{
+   alert("hello")
     email=Login_email.value
     password=Login_password.value
     const data={email,password}
