@@ -34,7 +34,7 @@
                 </p>
                 <div class="flex justify-center md:justify-start">
                     <a
-                      href="./login.html"
+                      href="./MainLogin.html"
                       class="p-3 px-6 pt-2 text-white bg-sky-300 rounded-full baseline hover:bg-brightRedLight"
                       >See Booked Appointment</a
                     >
@@ -291,6 +291,7 @@
             enableTime: true,
             dateFormat: "Y-m-d H:i",
             altInput: true,
+            minDate:"today",
             altFormat: "F j, Y (h:S K)"
         }
         flatpickr("input[type=datetime-local]", config);
