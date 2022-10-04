@@ -1,6 +1,7 @@
 let Login_password=document.querySelector('.L_password');
 let passwordCheck=document.querySelector(".passwordCheck");
-let button=document.getElementById("loginButton")
+
+
 
 //View Password functionality
 passwordCheck.addEventListener("click",()=>{
@@ -9,40 +10,34 @@ passwordCheck.addEventListener("click",()=>{
      }else{
       Login_password.type="password"
      }
-     
+       
 })
 
 
-//disable button functionality
+
+
+          
 
 
 
 
 //login function 
-const login_button=document.querySelector('.Lbutton')
-let Login_email=document.querySelector(".Lemail")
-let User=document.querySelector('.name')
-
-//const disableFunction=()=>{
-//    if(Login_email.value==="" & Login_password.value===""){
-//      button.disabled=true
-//    }
-//}
-//
-//disableFunction()
-
-login_button.addEventListener("click",()=>{
-   alert("hello")
-    email=Login_email.value
-    password=Login_password.value
-    const data={email,password}
-    axios.post("http://localhost:5000/authentication/login",data)
-    .then((res)=>{
-          // window.location.href="./Info.html"
-     })
-     .catch((err)=>{
-          console.log("an error occured")
-     })
+const loginButton=document.querySelector('.loginButton')
+let LoginEmail=document.querySelector(".loginEmail")
+let LoginPassword=document.querySelector(".loginPassword")
+//let User=document.querySelector('.name')
+loginButton.addEventListener("click",()=>{
+    email=LoginEmail.value
+    password=LoginPassword.value
+    alert(email,password)
+    //const data={email,password}
+    //axios.post("http://localhost:5000/authentication/login",data)
+    //.then((res)=>{
+    //      console.log(res)
+    // })
+    // .catch((err)=>{
+    //      console.log("an error occured")
+    // })
 })
 
 
@@ -61,7 +56,7 @@ Sign_button.addEventListener("click",()=>{
    const data={firstname,lastname,email,password}
    axios.post("http://localhost:5000/authentication/register",data)
    .then((res)=>{
-         
+         console.log(res)
    })
    .catch((err)=>{
       console.log("an error occured");

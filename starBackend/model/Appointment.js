@@ -2,38 +2,39 @@
 
 const mongoose=require('mongoose');
 
-//creating the schema for the appointmnet booking
 const appointmentSchema=new mongoose.Schema({
-    
     name:{
         type:String,
-        required:true,   //if the name is not provided, it will throw an error
+        required:true,   
     },
-       email:{
-        type:String,
-        required:true,
+    email:{
+        type:String
+    },
+    service:{
+        type:String
     },
     phone:{
-        type:Number,
+        type:String,
         minlength:10,
         maxlength:10,
     },
     date:{
-        type:Date,
+        type:String,
         required:true,
     },
     doctor:{
         type:String
     },
-    status:{
-       default:"Pending"
+    staus:{
+        type:String,
+        enum:['pending','canceled'],
+        default:'pending'
     },
-    createdAT:{
-        type:Date,
-        default:Date.now()
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Profile',
+      required: [true, 'Please provide user'],
     },
-});
+},{timestamps:true});
 
-// exporting the model
-//the *appointmentSchema* name will be appeared in the database as *appointments*
 module.exports=mongoose.model('Appointment',appointmentSchema);

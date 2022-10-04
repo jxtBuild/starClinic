@@ -1,28 +1,32 @@
-//this is whre the appointment booking is done
+
 const appointments=require('../model/Appointment');
+const { StatusCodes } = require('http-status-codes');
+const {BadRequestError,UnauthenticatedError}=require('../errors');
 
 
-//this is where the appointment booking is done
+
+
 const postAppointment=async(req,res)=>{
-   const data={name,email,number,date,doctor}={...req.body}
-   console.log(data)
+    req.body.createdBy=req.user.userId
+    const appointment=await appointments.create(req.body)
+    res.status(StatusCodes.CREATED).json({appointment})
+
 }
     
 
-
-
-//this is will help us get the all the  booked appointments
 const getAppointments=async(req,res)=>{
-   console.log(req.user)
+   const appointment=await appointments.find({createdBy:req.user.userId})
+   res.status(StatusCodes.OK).json({total:appointment.length,appointment:appointment})
 }
 
 
 const updateAppointment=async(req,res)=>{
-    try {
-        res.send("update")
-    } catch (error) {
-        console.log("an error occured")
+    const {id}=req.params
+    const appointment=await appointments.findOne({id})
+    if(!appointment){
+        res.json("not found")
     }
+      res.json("update job")
 }
 
 module.exports={

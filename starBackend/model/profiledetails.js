@@ -13,32 +13,37 @@ const ProfileSchema=new mongoose.Schema({
   },
   email:{
     type:String,
-    uinque:true,
-    required:[true,'please provide your password']
+    unique:true,
+    required:[true,'please provide your email'],
+    sparse:true
   },
   password:{
     type:String,
     required:[true,'please provide your password'],
     minlength:6,
-    uique:true
   }
 })
 //hashing of the password is done here
-ProfileSchema.pre('save',async function (){
-  const salt=await bcrypt.genSalt(10);
-  this.password=await bcrypt.hash(this.password,salt);
+ProfileSchema.pre('save', async function () {
+  const salt = await bcrypt.genSalt(10)
+  this.password = await bcrypt.hash(this.password, salt)
 })
 
+ProfileSchema.methods.createJWT = function () {
+  return jwt.sign(
+    { userId: this._id, name: this.name },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRY,
+    }
+  )
+}
 
-//using mongo isntance to get the name 
-ProfileSchema.methods.createToken=function(){
-  return jwt.sign({id:this._id,firstname:this.firstname},process.env.JWT_SECRET,{expiresIn:'2d'})
+ProfileSchema.methods.comparePassword = async function (canditatePassword) {
+  const isMatch = await bcrypt.compare(canditatePassword, this.password)
+  return isMatch
 }
 
 
-//comparing the password
-ProfileSchema.methods.comparePassword=async function(password){
-  const passwordmatch=await bcrypt.compare(password,this.password);
-  return passwordmatch;
-}
+
 module.exports=mongoose.model('Profile',ProfileSchema)
