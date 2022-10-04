@@ -15,11 +15,11 @@
 </head>
 <body>
     <div class="flex h-screen ">
-         <div class="bg-blue-200 w-1/2 h-screen hidden justify-center  items-center md:flex">
+         <div class="bg-blue-200 w-1/2 h-screen hidden justify-center flex-1 items-center md:flex">
                <h1>hello</h1>
          </div>
         <!--second section of the page-->
-        <div class=" flex flex-col h-screen flex-1" x-data="app">
+        <div class=" flex flex-col h-screen flex-1 " x-data="app">
             <div class="justify-center flex flex-col items-center">
                 <img src="./img/starClinic.jpg" class="w-40" alt="tailus logo">
                 <p class="font-medium text-lg text-sky-600">Welcome to StarClinic</p>
@@ -63,12 +63,130 @@
                     <p class="text-gray-300 cursor-pointer">Don't have account yet?<span @click="isLoginPage = true"
                             x-show="!isLoginPage" class="ml-5 text-blue-700 font-bold cursor-pointer">Sign Up</span></p>
                 </div>
+                <!--success alert-->
+                <div class="hidden p-4 mb-4 mt-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                    role="alert">
+                    <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                        <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
+                    </div>
+                </div>
+                <!--warning alert-->
+            <div class="loginwarn    hidden  p-4 mt-5 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                    <span class="font-medium">Ensure that these requirements are met:</span>
+                    <ul class="mt-1.5 ml-4 text-red-700 list-disc list-inside">
+                        <li>All fields are not empty</li>
+                        <li>Password is typed correctly</li>
+                    </ul>
+                </div>
+            </div>
              </div>
 
              <!--Sign Up Content-->
-              <div x-show="isLoginPage">
-                  
-              </div>
+                <div x-show="isLoginPage" class="flex  flex-col relative justify-center items-center mt-4">
+                    <div class="">
+                        <label class="">Firstname</label>
+                        <div class="flex  items-center rounded border-2 border-gray-200 py-2 px-2">
+                            <div class="">
+                                <i class='bx bx-user bx-sm  text-gray-400 cursor-pointer'></i>
+                            </div>
+                            <input type="text" placeholder="ian"
+                                class="ml-1 outline-none focus:border-indigo-500 signFirstname"  />
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="">last name</label>
+                        <div class="flex  items-center rounded border-2 border-gray-200 py-2 px-2">
+                            <div class="">
+                                <i class='bx bx-user bx-sm  text-gray-400 cursor-pointer'></i>
+                            </div>
+                            <input type="text" placeholder="tuber"
+
+                                class="ml-1 outline-none focus:border-indigo-500 signLastname" />
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="">Email</label>
+                        <div class="flex  items-center rounded border-2 border-gray-200 py-2 px-2">
+                            <div class="">
+                                <i class='bx bx-envelope bx-sm  text-gray-400 cursor-pointer'></i>
+                            </div>
+                            <input type="text" placeholder="iantubers@example.com "
+                                class="ml-1 outline-none focus:border-indigo-500 signEmail" />
+                        </div>
+                    </div>
+                    <!--password-->
+                    <div class="mt-2">
+                        <label class="">Password</label>
+                        <div class="flex  items-center rounded border-2 border-gray-200 py-2 px-2">
+                            <input type="password" placeholder="************"
+                                class=" outline-none focus:border-indigo-500 signPassword"/>
+                            <div class="flex passwordCheck">
+                
+                                <i class='bx bx-low-vision bx-sm  text-gray-400 cursor-pointer'></i>
+                                <!-- <i class='bx bx-show  bx-sm text-gray-400 eyeshow'></i>-->
+                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 w-56 flex items-center justify-center">
+                        <button class="flex justify-center text-white text-center  rounded py-1 px-2 font-bold bg-blue-500 signButton"
+                            type="submit">
+                            create account
+                        </button>
+                    </div>
+                    <div class="mt-1">
+                        <p class="text-gray-300 cursor-pointer">Already having an account?<span @click="isLoginPage =false"
+                                x-show="isLoginPage" class="ml-5 text-blue-700 font-bold cursor-pointer">Login</span></p>
+                    </div>
+                    <!--success alert-->
+                    <div class="hidden p-4 mb-4 mt-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                        role="alert">
+                        <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Info</span>
+                        <div>
+                            <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
+                        </div>
+                    </div>
+                    <!--warning alert-->
+                    <div class="hidden signwarn p-4 mt-5 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+                        <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Danger</span>
+                        <div>
+                            <span class="font-medium">Ensure that these requirements are met:</span>
+                            <ul class="mt-1.5 ml-4 text-red-700 list-disc list-inside">
+                                <li>At least 10 characters (and up to 100 characters)</li>
+                                <li>At least one lowercase character</li>
+                                <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
         </div>
 
     </div>
