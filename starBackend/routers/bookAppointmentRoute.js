@@ -5,13 +5,13 @@ const {
     getAppointments,
     updateAppointment
 }=require('../controllers/AppointmentBooking')
-const verifyUser=require('../middleware/authentication')
+
 
 
 
 router.post('/page',postAppointment)
 router.get('/',getAppointments)
-router.patch("/",updateAppointment)
+router.patch("/:id",updateAppointment)
 
 
 
