@@ -10,12 +10,13 @@
     <title>STAR CLINIC</title>
     <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
 </head>
-<body>
+<body onload="load()">
     <div class="h-screen p-2 flex flex-1 flex-col">
         <!--header section-->
         <div class=" flex justify-between p-2 items-center">
             <h2 class="md:text-4xl  font-bold text-center text-sky-300 cursor-pointer">STAR CLINIC</h2>
-            <button class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold">LOGIN</button>
+            <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor-pointer hidden signButton">LOGIN</div>
+                <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor hidden logOutButton">LogOut</div>
         </div>
         <!--hero-->
         <div class="flex w-full  mt-4" style="background-image: url('img/bg.webp');">
@@ -28,10 +29,8 @@
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis in perferendis corrupti expedita, alias delectus
                     aperiam neque repellat nam
                 </p>
-                <div class="flex mb-4 ">
-                    <a href="./MainLogin.html"
-                        class="p-3 px-6 pt-2 text-white bg-sky-300 rounded-full baseline hover:bg-brightRedLight">See Booked
-                        Appointment</a>
+                <div class="flex mb-4">
+                    <button class="booked p-3 px-6 pt-2 text-white bg-sky-300 rounded-full hover:bg-brightRedLight">See Booked Appointment</button>
                 </div>
             </div>
             <!--Image on right-->

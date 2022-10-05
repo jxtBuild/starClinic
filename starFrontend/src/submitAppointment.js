@@ -11,7 +11,7 @@ const selectOption=document.querySelector('.selectOption')
 
 //function to make the post request to the server
 async function postData(){
-   
+    const token=localStorage.getItem('token')
 const data={
      name:fullName.value ,
      email:customerEmail.value,
@@ -20,8 +20,17 @@ const data={
      doctor:doctorname.value,
      service:selectOption.value,
 }
-       await axios.post('http://localhost:5000/appointment/page',data)
+       await axios.post('http://localhost:5000/appointment/page',data,{
+         headers:{
+            Authorization:`Bearer ${token}`
+         }
+       })
          .then((res)=>{
+             fullName.value=""
+             customerEmail.value=""
+             phoneNumber.value=""
+             dateTime.value=""
+             selectOption.value=""
          })
          .catch((err)=>{
             console.log('an error occured')

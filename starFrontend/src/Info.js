@@ -6,11 +6,31 @@ const status=document.querySelector('.status')
 const doctor=document.querySelector('.doctor')
 const noAppointment=document.querySelector('.noAppointment')
 const totalAppointment=document.querySelector('.numberAppointment')
+const numberAppointment=document.querySelector('.numberAppointment')
+let profile=document.querySelector('.name')
+
+
+
 const loadUserBookedAppointments= ()=>{
-    axios.get('http://localhost:5000/appointment')
+    const token=localStorage.getItem('token')
+    axios.get('http://localhost:5000/appointment',{
+           headers:{
+            Authorization:`Bearer ${token}`
+           }
+    })
     .then((res)=>{
         const data=res.data
-       data?console.log(data):noAppointment.style.display='flex'
+       data?noAppointment.style.display='hidden':noAppointment.style.display='flex'
+       const appointment=data.appointment
+       profile.innerHTML=localStorage.getItem('user')
+        numberAppointment.innerHTML=data.total
+        console.log(appointment)
+        appointment.map((items)=>{
+            date.innerHTML=items.date
+            service.innerHTML=""
+            doctor.innerHTML=items.doctor
+            status.innerHTML=items.staus
+        })
     })
     .catch((err)=>{
         const error=document.querySelector('.error')
