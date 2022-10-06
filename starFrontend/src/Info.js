@@ -29,7 +29,7 @@ const loadUserBookedAppointments= ()=>{
             date.innerHTML=items.date
             service.innerHTML=""
             doctor.innerHTML=items.doctor
-            status.innerHTML=items.staus
+            status.innerHTML=items.status
         })
     })
     .catch((err)=>{
@@ -46,11 +46,4 @@ const loadUserBookedAppointments= ()=>{
         })
     })
 }
-const data =(appointment)=>{
-  /* console.log(appointment)
-   for (name in appointment){
-       console.log(appointment[name])
-   }
-   */
-  
-}
+

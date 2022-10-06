@@ -20,7 +20,7 @@ const ProfileSchema=new mongoose.Schema({
   password:{
     type:String,
     required:[true,'please provide your password'],
-    minlength:6,
+    minlength:8,
   }
 })
 //hashing of the password is done here

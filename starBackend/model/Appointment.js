@@ -28,7 +28,7 @@ const appointmentSchema=new mongoose.Schema({
     status:{
         type:String,
         enum:['pending','canceled','attended'],
-        default:'Pending'
+        default:'pending'
     },
     createdBy: {
       type: mongoose.Types.ObjectId,

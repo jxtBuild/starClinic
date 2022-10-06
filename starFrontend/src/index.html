@@ -7,6 +7,9 @@
     <link href="../dist/output.css" rel="stylesheet">
     <!--FlatPickr-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!--mapbox-->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
     <title>STAR CLINIC</title>
     <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
 </head>
@@ -15,8 +18,11 @@
         <!--header section-->
         <div class=" flex justify-between p-2 items-center">
             <h2 class="md:text-4xl  font-bold text-center text-sky-300 cursor-pointer">STAR CLINIC</h2>
-            <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor-pointer hidden signButton">LOGIN</div>
+            <div>
+                <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor-pointer hidden signButton">LOGIN
+                </div>
                 <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor hidden logOutButton">LogOut</div>
+            </div>
         </div>
         <!--hero-->
         <div class="flex w-full  mt-4" style="background-image: url('img/bg.webp');">
@@ -252,6 +258,12 @@
             
             </div>
         </div>
+           <!--Map-->
+           <div class="flex mt-2 justify-center">
+             <div class="w-full h-96 border-yellow-300" id="map">
+
+             </div>
+           </div>
         <footer class="p-4 mt-4 bg-white sm:p-6 dark:bg-gray-900">
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
             <div class="sm:flex sm:items-center sm:justify-between flex  justify-end items-center">
@@ -296,5 +308,21 @@
         })();
     </script>
     <!--End of Tawk.to Script-->
+    <!--mapbox-->
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZW1tYW51ZWwtYiIsImEiOiJjbDh4NWE2eHQwM2IxM3VwYXF0OHQ1cmliIn0.gtNi6yY9Opq37mLjSQMDag';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [0.1739, 5.7556], // starting position [lng, lat]
+            zoom: 5, // starting zoom
+            //projection: 'globe' // display the map as a 3D globe
+        });
+
+        map.on('style.load', () => {
+            map.setFog({}); // Set the default atmosphere style
+        });
+    </script>
 </body>
 </html>
