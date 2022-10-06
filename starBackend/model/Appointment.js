@@ -25,10 +25,10 @@ const appointmentSchema=new mongoose.Schema({
     doctor:{
         type:String
     },
-    staus:{
+    status:{
         type:String,
-        enum:['pending','canceled'],
-        default:'pending'
+        enum:['pending','canceled','attended'],
+        default:'Pending'
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
