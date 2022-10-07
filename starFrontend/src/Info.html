@@ -41,34 +41,70 @@
                     <p class="p-1 text-xs bg-gray-100 flex-1 flex justify-end cursor-pointer">Number:<span class="px-1 cursor-pointer numberAppointment">  </span></p>
                 </div>
                 <!--Table for the appointments-->
-                <div class="table w-full">
-                        <div class="table-header-group">
-                             <div class="table-row  text-blue-600">
-                                   <div class="table-cell text-left border p-2 cursor-pointer">Date</div>
-                                   <div class="table-cell text-left border p-2 cursor-pointer ">Time</div>
-                                   <div class="table-cell text-left border p-2 cursor-pointer">Service</div>
-                                   <div class="table-cell text-left border p-2 cursor-pointer">Status</div>
-                                   <div class="table-cell text-left border p-2 cursor-pointer">Doctor</div>
-                             </div>
-                        </div>
-                        <div class="table-row-group appointment">
-                              <div class="table-row">
-                                <!--the date,time,service,status,doctor are class names
-                                the rest are tailwind styles
-                                -->
-                                    <div class="table-cell border p-2 cursor-pointer date"></div>
-                                    <div class="table-cell border p-2 cursor-pointer time"></div>
-                                    <div class="table-cell border p-2 cursor-pointer service"></div>
-                                    <div class="table-cell border p-2 cursor-pointer status"></div>
-                                    <div class="table-cell border p-2 cursor-pointer doctor"></div>
-                              </div>
-                        </div>
-                </div>
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 ">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                <tr>
+                                    <th scope="col" class="p-4">
+                                        <div class="flex items-center">
+                                            <input id="checkbox-all-search" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Date
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Service
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Doctor
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Status
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b  hover:bg-gray-100">
+                                    <td class="p-4 w-4">
+                                        <div class="flex items-center">
+                                            <input id="checkbox-table-search-1" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                        </div>
+                                    </td>
+                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap date">
+                                        
+                                    </th>
+                                    <td class="py-4 px-6 service">
+                                        
+                                    </td>
+                                    <td class="py-4 px-6  doctor">
+                                      
+                                    </td>
+                                    <td class="py-4 px-6 status">
+                                       
+                                    </td>
+                                    <td class="py-4 px-6 flex  items-center hidden showButton">
+                                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
+                                        <button class="font-medium text-red-600 ml-2 removeAppointment">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 <div class="p-3 justify-center noAppointment hidden">
                     <p class="text-center"> There are no booked appointment in your name</p>
                 </div>
             </div>
-              
+           
+            
             <!--end of appointment details-->
 
         <script src="./Info.js"></script>

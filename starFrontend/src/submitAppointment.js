@@ -7,7 +7,7 @@ const doctorname=document.querySelector('.doctorName');//for doctor value
 //const service=documnet.querySelector()
 const submitButton=document.querySelector('.submitButton') //selecting the form submitting button
 const selectOption=document.querySelector('.selectOption')
-
+const toast_success=document.getElementById('#toast-success')
 
 //function to make the post request to the server
 async function postData(){
@@ -27,11 +27,7 @@ const data={
          }
        })
          .then((res)=>{
-             fullName.value=""
-             customerEmail.value=""
-             phoneNumber.value=""
-             dateTime.value=""
-             selectOption.value=""
+          clearform()
          })
          .catch((err)=>{
             console.log('an error occured')
@@ -45,6 +41,13 @@ submitButton.addEventListener('click',(e)=>{
  
 })
 
+const clearform=()=>{
+      fullName.value=""
+       customerEmail.value=""
+       phoneNumber.value=""
+       dateTime.value=""
+       selectOption.value=""
+}
 
 
 

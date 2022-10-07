@@ -14,6 +14,7 @@ let success=document.querySelector('.success')
 
 
 
+
 //View Password functionality
 passwordCheck.addEventListener("click",()=>{
      if(Login_password.type==="password"){

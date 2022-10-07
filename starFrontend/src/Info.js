@@ -7,6 +7,8 @@ const doctor=document.querySelector('.doctor')
 const noAppointment=document.querySelector('.noAppointment')
 const totalAppointment=document.querySelector('.numberAppointment')
 const numberAppointment=document.querySelector('.numberAppointment')
+const removeAppointment=document.querySelector('.removeAppointment')
+const showButton=document.querySelector('.showButton')
 let profile=document.querySelector('.name')
 
 
@@ -24,12 +26,10 @@ const loadUserBookedAppointments= ()=>{
        const appointment=data.appointment
        profile.innerHTML=localStorage.getItem('user')
         numberAppointment.innerHTML=data.total
-        console.log(appointment)
+        console.log(appointment[1]);
         appointment.map((items)=>{
-            date.innerHTML=items.date
-            service.innerHTML=""
-            doctor.innerHTML=items.doctor
-            status.innerHTML=items.status
+            DoctorVariable(items)
+            showButton.style.display="flex"
         })
     })
     .catch((err)=>{
@@ -47,3 +47,17 @@ const loadUserBookedAppointments= ()=>{
     })
 }
 
+removeAppointment.addEventListener("click",()=>{
+    alert("you want to remove me")
+})
+
+const DoctorVariable=(items,index)=>{
+    date.innerHTML=items.date
+    service.innerHTML=""
+    if(items.doctor){
+        doctor.innerHTML=items.doctor
+    }else{
+        doctor.innerHTML="-"
+    }
+    status.innerHTML=items.status
+}
