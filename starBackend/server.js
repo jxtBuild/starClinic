@@ -13,7 +13,10 @@ const {verifyUser}=require('./middleware/authentication')
 
 
 
-app.use(cors())
+app.use(cors({
+  origin:true,
+  credentials:true
+}))
 app.use(express.json());
 //routes
 app.use("/authentication",authRoute)
@@ -22,7 +25,9 @@ app.use("/appointment",verifyUser,appointmentRoute)
 //error Handler middleware
 app.use(errorHandle)
 
-
+app.get("/",(req,res)=>{
+  res.send("hello")
+})
 
 app.listen(port,()=>{
     console.log("connected")

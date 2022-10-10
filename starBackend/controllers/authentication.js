@@ -6,6 +6,7 @@ const register=async (req,res)=>{
    const user = await Profile.create({ ...req.body })
    const token = user.createJWT()
    res.status(StatusCodes.CREATED).json({ user: { name: user.firstname }, token })
+   res.send("in")
 }
 
 const login = async (req, res) => {

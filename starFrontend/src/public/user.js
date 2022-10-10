@@ -36,10 +36,10 @@ loginButton.addEventListener("click",()=>{
     email=LoginEmail.value
     password=LoginPassword.value
     const profile={email,password}
-    axios.post("http://localhost:5000/authentication/login",profile)
+    axios.post("https://starclinic.herokuapp.com",profile)
     .then((res)=>{
          const {data}=res
-           const name=data.user.name
+           //const name=data.user.name
           LoginEmail.value=""
           LoginPassword.value=""
           loginsuccess.style.display='flex'
@@ -48,6 +48,7 @@ loginButton.addEventListener("click",()=>{
          window.location.href='./index.html'
      })
      .catch((error)=>{
+          console.log(error);
           const loginwarn=document.querySelector(".loginwarn")
           loginwarn.style.display="flex"
      })
@@ -64,7 +65,7 @@ signButton.addEventListener("click",()=>{
    email=signEmail.value
    password=signPassword.value
    const data={firstname,lastname,email,password}
-   axios.post("http://localhost:5000/authentication/register",data)
+   axios.post("https://starclinic.herokuapp.com",data)
    .then((res)=>{
          if(res){
             success.style.display="flex"
