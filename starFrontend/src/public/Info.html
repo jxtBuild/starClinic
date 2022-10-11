@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./dist/output.css" rel="stylesheet">
+    <title>Appointments Page</title>
+    <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
+</head>
+<body class=" bg-slate-100 flex flex-col" onload="loadUserBookedAppointments()">
+    <!---header-->
+             <div class="bg-white flex items-center shadow-lg p-4 cursor-pointer ">
+                <!--BOOKED APPOINTMENT TITILE-->
+                <div class=" flex-1">
+                    <h4 class="p-2 cursor-pointer bg-blue-600 w-44 text-white rounded">Booked Appointment</h4>
+                </div>
+                <!--Profile details-->
+                <div class="flex items-center border-l mx-9">
+                  <h4 class="name text-black m-2 text-xl"></h4>
+                     <img
+                     class="w-10 fill-slate-200"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAnJJREFUSEvFlv0xBFEQxPsiQASIABEgAkRABogAESACRIAIEAEiQAZEQP2udq76xuzH3T83VVdXu+/t9HTPx3sjLchGC8LVPMA7kpYkbTZBv0n6ksT/YBsKvCbpTNK+pOUW79+SHiRdSPrsi6APGJBLSUd9jtL6raRTSQRTWhcwLO9NUhw8NpI+m7RIjvz87xkK0h+0sW8DBvTVZCWHsAawywgAtqvNJhhvVeAVMPI+GdNrSedJNgA2rLheLBq+Z/+xre9m2StgIj5sPgL0xJwi502Sn+VK1isDv8t1koGR+KMBQl6AokBggvzsqYxKRlbfT0Ah+7pLnoGdLfJ4TmPtp4me1sHIPezo7awQKSFt2BTrDEy0OKB66Vk3oiev2Tl7Qlb2wNqN4LcbJVZiwYE9OoYABeL22zxUa+xlwGCZjK8R1HjC+SYY0rdYlpl3Qxi/F4XnfunrcYoc2CNDkjx1Qk7eU+nkDCPHVDpWpcELdqLWLMBUtVdpysT4oPAuiPVe4D6pcYQTpIrhEc6RmO+rw6H0O0txOcOYzZH7rlHqKZzUziztFPmkNfIQgSngkXcPMtqJ/p8cqUMHCLljELSdxQFE4cEqLgWDB4hvjBEYozJAKaKcSxTIJxJB+IidatHqkPDhTnvAFnkxDnfWK6PFuDRgyEvBxQn1r83ajsWqbaqJlQPwoGOtbLO2iwAsaZuQDyfVNMvAnirWYM2A+XcR7Lr6kFMk857lGVY4jDyTX/YgNcDe2zyX964hlz0c8uPUGmK0DcHxm+uy5yCwBzxOoLYAqINOwPiwj3EFQBDUgF/oyWEru8rJPMBD5O7dszDgP/X7pB/IszboAAAAAElFTkSuQmCC" />
+                </div>
+            </div>
+            <!--end of header-->
+            <!--error message-->
+            <div class="flex justify-center p-2 m-4">
+                <div class="error hidden flex-col flex-1 justify-center items-center">
+                     <h4 class="errorMessage rounded flex bg-red-300 w-1/2 h-5 p-2 cursor-pointer flex-1 justify-center m-1 text-white"></h4>
+                     <button class="reloadbutton bg-blue-600 text-white px-4 py-1 rounded">RELOAD</button>
+                </div>
+            </div>
+            <!--end of error message-->
+            <!--appointment details-->
+            <div class="m-2 bg-white  flex flex-col rounded-md shadow-lg">
+                <div class="p-3 bg-gray-50 font-bold text-blue-600 flex-1 flex ">
+                  <h4>List of Appointments</h4>
+                </div>
+                <div class="p-3 flex justify-end">
+                    <p class="p-1 text-xs bg-gray-100 flex-1 flex justify-end cursor-pointer">Number:<span class="px-1 cursor-pointer numberAppointment">  </span></p>
+                </div>
+                <!--Table for the appointments-->
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-500 ">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                <tr>
+                                    <th scope="col" class="p-4">
+                                        <div class="flex items-center">
+                                            <input id="checkbox-all-search" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Date
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Service
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Doctor
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Status
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b  hover:bg-gray-100">
+                                    <td class="p-4 w-4">
+                                        <div class="flex items-center">
+                                            <input id="checkbox-table-search-1" type="checkbox"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                        </div>
+                                    </td>
+                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap date">
+                                        
+                                    </th>
+                                    <td class="py-4 px-6 service">
+                                        
+                                    </td>
+                                    <td class="py-4 px-6  doctor">
+                                      
+                                    </td>
+                                    <td class="py-4 px-6 status">
+                                       
+                                    </td>
+                                    <td class="py-4 px-6   items-center hidden showButton">
+                                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
+                                        <button class="font-medium text-red-600 ml-2 removeAppointment">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                <div class="p-3 justify-center noAppointment hidden">
+                    <p class="text-center"> There are no booked appointment in your name</p>
+                </div>
+            </div>
+           
+            
+            <!--end of appointment details-->
+
+        <script src="./Info.js"></script>
+        <script src="./user.js"></script>
+        <!--AXIOS CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!--Start of Tawk.to Script-->
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/63147d5137898912e9671892/1gc40j29n';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+</body>
+</html>
+

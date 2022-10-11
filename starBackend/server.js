@@ -8,12 +8,15 @@ const port=process.env.PORT || 5000
 const errorHandle=require('./middleware/error_handle')
 require('dotenv').config()
 const {verifyUser}=require('./middleware/authentication')
-const {StatusCodes}=require('http-status-codes')
 
 
 
 
-app.use(cors())
+
+app.use(cors({
+  origin:true,
+  credentials:true
+}))
 app.use(express.json());
 //routes
 app.use("/authentication",authRoute)
@@ -22,6 +25,9 @@ app.use("/appointment",verifyUser,appointmentRoute)
 //error Handler middleware
 app.use(errorHandle)
 
+app.get("/",(req,res)=>{
+  res.send("hello")
+})
 
 app.listen(port,()=>{
     console.log("connected")

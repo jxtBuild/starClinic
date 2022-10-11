@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../dist/output.css" rel="stylesheet">
+    <link href="./dist/output.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
         rel="stylesheet">
@@ -64,7 +64,7 @@
                             x-show="!isLoginPage" class="ml-5 text-blue-700 font-bold cursor-pointer">Sign Up</span></p>
                 </div>
                 <!--success alert-->
-                <div class="hidden p-4 mb-4 mt-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                <div class="loginsuccess hidden p-4 mb-4 mt-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
                     role="alert">
                     <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -74,11 +74,11 @@
                     </svg>
                     <span class="sr-only">Info</span>
                     <div>
-                        <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
+                        <span class="font-medium mr-2">Success alert!</span>You have been authenticated
                     </div>
                 </div>
                 <!--warning alert-->
-            <div class="loginwarn    hidden  p-4 mt-5 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+            <div class="loginwarn  hidden  p-4 mt-5 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                 role="alert">
                 <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
@@ -92,6 +92,7 @@
                     <ul class="mt-1.5 ml-4 text-red-700 list-disc list-inside">
                         <li>All fields must not empty</li>
                         <li>Password is typed correctly</li>
+                        <li>You have a stable network connection</li>
                     </ul>
                 </div>
             </div>
@@ -155,7 +156,7 @@
                                 x-show="isLoginPage" class="ml-5 text-blue-700 font-bold cursor-pointer">Login</span></p>
                     </div>
                     <!--success alert-->
-                    <div class="hidden p-4 mb-4 mt-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                    <div class="success hidden p-4 mb-4 mt-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
                         role="alert">
                         <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +166,7 @@
                         </svg>
                         <span class="sr-only">Info</span>
                         <div>
-                            <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
+                            <span class="font-medium message">Success alert!</span> You account has been created successfully
                         </div>
                     </div>
                     <!--warning alert-->
@@ -180,9 +181,9 @@
                         <div>
                             <span class="font-medium">Ensure that these requirements are met:</span>
                             <ul class="mt-1.5 ml-4 text-red-700 list-disc list-inside">
-                                <li>At least 10 characters (and up to 100 characters)</li>
-                                <li>At least one lowercase character</li>
-                                <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
+                                <li>All fields must not empty</li>
+                                <li>your password should have at least 8 characters</li>
+                                <li>You have a stable network connection</li>
                             </ul>
                         </div>
                     </div>
