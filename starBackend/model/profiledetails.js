@@ -11,16 +11,29 @@ const ProfileSchema=new mongoose.Schema({
     type:String,
     required:[true,'please provide your lastname'],
   },
-  email:{
+  gender:{
     type:String,
-    unique:true,
-    required:[true,'please provide your email'],
-    sparse:true
+    required:[true,'please provide your gender']
+  },
+ email: {
+    type: String,
+    required: [true, 'Please provide email'],
+    match: [
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Please provide a valid email',
+    ],
+    unique: true,
   },
   password:{
     type:String,
     required:[true,'please provide your password'],
     minlength:8,
+    unique:true
+  },
+  verified:{
+    type:Boolean,
+    required:true,
+    default:false
   }
 })
 //hashing of the password is done here
@@ -37,6 +50,15 @@ ProfileSchema.methods.createJWT = function () {
       expiresIn: process.env.JWT_EXPIRY,
     }
   )
+}
+
+ProfileSchema.methods.GenerateOTP=function (){
+    let otp=""
+      for(i=0;i<=3;i++){
+       let rand= Math.floor(Math.random()*9)
+       otp+=rand
+      }
+      return otp
 }
 
 ProfileSchema.methods.comparePassword = async function (canditatePassword) {

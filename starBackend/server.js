@@ -8,15 +8,16 @@ const port=process.env.PORT || 5000
 const errorHandle=require('./middleware/error_handle')
 require('dotenv').config()
 const {verifyUser}=require('./middleware/authentication')
+const helmet=require('helmet')
+const xss=require('xss-clean')
 
 
 
 
 
-app.use(cors({
-  origin:true,
-  credentials:true
-}))
+app.use(cors())
+app.use(helmet())
+app.use(xss())
 app.use(express.json());
 //routes
 app.use("/authentication",authRoute)

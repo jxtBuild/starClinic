@@ -2,7 +2,7 @@
 const Profile=require('../model/profiledetails');
 const jwt=require('jsonwebtoken')
 const { UnauthenticatedError,BadRequestError}=require('../errors')
-
+const PasswordToken=require('../model/PasswordResetToken')
 
 
 const verifyUser=async (req,res,next)=>{
@@ -22,6 +22,23 @@ const verifyUser=async (req,res,next)=>{
 }
 
 
+const VerifyReset=async (req,res,next)=>{
+  const {id,token}=req.query
+  if(!id || !token){
+    throw new UnauthenticatedError('Please provide the details')
+  }
+  const user = await Profile.findOne({id:id})
+   if(!user){
+        throw new UnauthenticatedError('User not available')
+   }
+   const isMatch=await PasswordToken.compareToken(token)
+   if(!isMatch){
+    throw new UnauthenticatedError('credentials invalid')
+   }
+   req.user=user
+}
+
 module.exports={
   verifyUser,
+  VerifyReset
 };

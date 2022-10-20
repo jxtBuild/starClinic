@@ -15,7 +15,7 @@ let profile=document.querySelector('.name')
 
 const loadUserBookedAppointments= ()=>{
     const token=localStorage.getItem('token')
-    axios.get('http://localhost:5000/appointment',{
+    axios.get('https://starclinic.herokuapp.com/appointment',{
            headers:{
             Authorization:`Bearer ${token}`
            }
@@ -53,7 +53,7 @@ removeAppointment.addEventListener("click",()=>{
 
 const DoctorVariable=(items,index)=>{
     date.innerHTML=items.date
-    service.innerHTML=""
+    service.innerHTML=items.service
     if(items.doctor){
         doctor.innerHTML=items.doctor
     }else{
