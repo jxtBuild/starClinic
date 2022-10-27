@@ -39,7 +39,8 @@ loginButton.addEventListener("click",()=>{
     email=LoginEmail.value
     password=LoginPassword.value
     const profile={email,password}
-    axios.post("https://starclinic.herokuapp.com/authentication/login",profile)
+    axios.post("https://starclinic.herokuapp.com/authentication/login ",profile)
+    //   http://localhost:5000/authentication/login
     .then((res)=>{
          const {data}=res
          const name=data.user.name
@@ -69,6 +70,7 @@ signButton.addEventListener("click",()=>{
  gender=GenderFunction()
  const data={firstname,lastname,gender,email,password}
  axios.post("https://starclinic.herokuapp.com/authentication/register",data)
+ //  http://localhost:5000/authentication/register
  .then((res)=>{
        if(res){
           success.style.display="flex"

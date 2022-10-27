@@ -15,8 +15,8 @@ const {
 router.post("/register",register);
 router.post("/login",login);
 router.post("/passwordchange",PasswordRecovery)
-router.post("/resetPassword",VerifyReset,resetPassword)
-router.get("/verification",VerifyEmail)
+router.get("/reset-Password",resetPassword)
+router.post("/verification",VerifyEmail)
 
 
 

@@ -24,7 +24,7 @@ VerifyToken.pre("save",async function(){
 })
 
 
-VerifyToken.methods.comparePassword = async function (canditateToken) {
+VerifyToken.methods.compareToken = async function (canditateToken) {
   const isMatch = await bcrypt.compare(canditateToken, this.OneTimePassword)
   return isMatch
 }

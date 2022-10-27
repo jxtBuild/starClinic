@@ -1,4 +1,3 @@
-//
 const signButton=document.querySelector('.signButton');
 const booked=document.querySelector('.booked')
 const logOutButton=document.querySelector('.logOutButton')
@@ -6,6 +5,8 @@ const menu=document.querySelector(".menu")
 const dropdown=document.querySelector(".dropdown")
 const menuSign=document.querySelector(".menuSign")
 const menuLogOut=document.querySelector(".menuLogOut")
+const showMenu=document.querySelector(".showMenu")
+const closeMenu=document.querySelector(".closeMenu")
 
 const load=()=>{
   UserAuthentication()
@@ -39,14 +40,21 @@ booked.addEventListener("click",()=>{
 
 
 
-menu.addEventListener("click",()=>{
-     if(dropdown.style.display="hidden"){
-      dropdown.style.display="flex"
-     }
-     else{
-      dropdown.style.display="flex"
+showMenu.addEventListener("click",()=>{
+     if(dropdown.style.display="none"){
+      dropdown.style.display="block"
+      showMenu.style.display="none"
+      closeMenu.style.display="block"
      }
    })
+
+closeMenu.addEventListener(("click"),()=>{
+      if(dropdown.style.display="block"){
+      dropdown.style.display="none"
+      showMenu.style.display="block"
+      closeMenu.style.display="none"
+     }
+})
 
 const CheckToken=()=>{
     const token=localStorage.getItem('token')

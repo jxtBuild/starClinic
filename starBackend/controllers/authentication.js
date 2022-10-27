@@ -1,12 +1,11 @@
 const Profile=require('../model/profiledetails');
 const Verification=require('../model/UserVerification')
-const {GenerateOTP}=require('../middleware/authentication')
 const { StatusCodes } = require('http-status-codes');
 const {BadRequestError,UnauthenticatedError}=require('../errors');
-const mailTransport=require('../controllers/Mail')
 const PasswordToken=require('../model/PasswordResetToken')
-const jwt=require('jsonwebtoken');
 const crypto=require('crypto')
+const sendVerificationEmail=require('../utils/sendVerificationEmail')
+const sendResetPassswordEmail=require('../utils/sendResetPasswordEmail')
 
 
 
@@ -20,19 +19,39 @@ const register=async (req,res)=>{
    const OTP=user.GenerateOTP()
    const createOTP= await Verification.create({owner:user._id,OneTimePassword:OTP})
     user.createJWT()
-    mailTransport().sendMail({
-     from:'secure4@gmail.com',
-     to:user.email,
-     subject:"Verify your gmail account",
-     html:`<h2>${OTP}</h2>`
-   })
-   res.status(StatusCodes.CREATED).json({ msg:"Please check your email for a verification token"})
+     sendVerificationEmail({
+      name:user.firstname,
+      email:user.email,
+      verificationToken:OTP
+    })
+   res.status(StatusCodes.CREATED).json({
+    msg: 'Success! Please check your email account for a verification token'
+  });
 }
 
 
 const VerifyEmail=async (req,res)=>{
-   const {OTP}=req.body
-}
+   const {userId,OTP}=req.body
+    if(!userId || !OTP){
+      throw new BadRequestError("Please provide the details")
+    }
+    const user =await Profile.findOne({userId})
+       if (!user) {
+    throw new UnauthenticatedError('User not found');
+      }
+    const token =await Verification.findOne({owner:user._id})
+    if(!token){
+      throw new BadRequestError("token is not valid")
+    }
+    const isMatch = await token.compareToken(OTP)
+    if(!isMatch){
+      throw new UnauthenticatedError("token verification failed")
+    }
+    user.verified=true;
+    await Verification.findOneAndDelete(token.id)
+    await user.save()
+    res.status(StatusCodes.OK).json({ msg: 'Email Verified' });
+  }
 
 
 const login = async (req, res) => {
@@ -67,20 +86,21 @@ const PasswordRecovery= async (req,res)=>{
    }
    if(userAccount){
     const passwordToken = crypto.randomBytes(30).toString('hex');
-      mailTransport().sendMail({
-     from:'secure4@gmail.com',
-     to:userAccount.email,
-     subject:"Verify your gmail account",
-     html:`<h2>${passwordToken}id=${userAccount._id}</h2>`//placed a password reset link page
-   })
+    const origin="https://starclinic.herokuapp.com/authentication"
+    sendResetPassswordEmail({
+      name:userAccount.firstname,
+      email:userAccount.email,
+      token:passwordToken,
+      origin
+    })
   await PasswordToken.create({owner:userAccount._id,resetToken:passwordToken})
    }
-   res.json({msg:"token has been sent"})
+   res.json({msg:"Please check your email account for a Password reset link"})
 }
 
 
 const resetPassword=async(req,res)=>{
-  res.json({msg:"hello"})
+  
 }
 
 module.exports={
