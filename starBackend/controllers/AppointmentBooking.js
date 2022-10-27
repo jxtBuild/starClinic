@@ -1,7 +1,7 @@
 
 const appointments=require('../model/Appointment');
 const { StatusCodes } = require('http-status-codes');
-const {BadRequestError,UnauthenticatedError}=require('../errors');
+const {BadRequestError,UnauthenticatedError,NotFoundError}=require('../errors');
 
 
 
@@ -20,17 +20,37 @@ const getAppointments=async(req,res)=>{
 
 
 const updateAppointment=async(req,res)=>{
-    const {id}=req.params
-    const appointment=await appointments.findOne({id})
-      res.json("update job")
+    const {
+    user: { userId },
+    params: { id: appointmentId },
+    } = req
+    const appointment=await appointments.findOne({
+      _id:appointmentId,
+      createdBy:userId
+    })
+      res.json({msg:"update appointment",appointment})
 }
 
 const cancelAppointment=async(req,res)=>{
-
+    const {
+    user: { userId },
+    params: { id: appointmentId },
+    } = req
+   const appointment = await appointments.findOne({
+    _id: appointmentId,
+    createdBy: userId,
+  })
+  if(!appointment){
+    throw new NotFoundError(`No appointment was found`)
+  }
+   appointment.status="canceled"
+   await appointment.save()
+  res.status(StatusCodes.OK).json({msg:"appointment has been canceled"})
 }
 
 module.exports={
     postAppointment,
     getAppointments,
     updateAppointment,
+    cancelAppointment
 }

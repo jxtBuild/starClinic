@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href="./dist/output.css" rel="stylesheet">
     <title>Appointments Page</title>
     <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
@@ -13,7 +14,7 @@
              <div class="bg-white flex items-center shadow-lg p-4 cursor-pointer ">
                 <!--BOOKED APPOINTMENT TITILE-->
                 <div class=" flex-1">
-                    <h4 class="p-2 cursor-pointer bg-blue-600 w-44 text-white rounded">Booked Appointment</h4>
+                    <h4 class="p-1 md:p-2 cursor-pointer bg-blue-600 w-32 md:w-44 text-white rounded">Booked Appointment</h4>
                 </div>
                 <!--Profile details-->
                 <div class="flex items-center border-l mx-9">
@@ -44,14 +45,13 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-left text-gray-500 ">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                             
                                 <tr>
-                                    <th scope="col" class="p-4">
-                                        <div class="flex items-center">
-                                            <input id="checkbox-all-search" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                                        </div>
-                                    </th>
+                                   <th scope="col" class="p-2">
+                                    <div class="flex items-center">
+                                        <i class='bx bxs-bookmark bx-sm'></i>
+                                    </div>
+                                   </th>
                                     <th scope="col" class="py-3 px-6">
                                         Date
                                     </th>
@@ -69,32 +69,7 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="bg-white border-b  hover:bg-gray-100">
-                                    <td class="p-4 w-4">
-                                        <div class="flex items-center">
-                                            <input id="checkbox-table-search-1" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                                        </div>
-                                    </td>
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap date">
-                                        
-                                    </th>
-                                    <td class="py-4 px-6 service">
-                                        
-                                    </td>
-                                    <td class="py-4 px-6  doctor">
-                                      
-                                    </td>
-                                    <td class="py-4 px-6 status">
-                                       
-                                    </td>
-                                    <td class="py-4 px-6   items-center hidden showButton">
-                                        <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
-                                        <button class="font-medium text-red-600 ml-2 removeAppointment">Remove</button>
-                                    </td>
-                                </tr>
+                            <tbody class="appointmentTable">
                             </tbody>
                         </table>
                     </div>

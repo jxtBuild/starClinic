@@ -3,7 +3,8 @@ const router=express.Router();
 const {
     postAppointment,
     getAppointments,
-    updateAppointment
+    updateAppointment,
+    cancelAppointment
 }=require('../controllers/AppointmentBooking')
 
 
@@ -12,6 +13,8 @@ const {
 router.post('/page',postAppointment)
 router.get('/',getAppointments)
 router.patch("/:id",updateAppointment)
+router.delete("/:id",cancelAppointment)
+
 
 
 

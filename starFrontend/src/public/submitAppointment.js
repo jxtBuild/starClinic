@@ -7,30 +7,34 @@ const doctorname=document.querySelector('.doctorName');//for doctor value
 //const service=documnet.querySelector()
 const submitButton=document.querySelector('.submitButton') //selecting the form submitting button
 const selectOption=document.querySelector('.selectOption')
-const toast_success=document.getElementById('#toast-success')
+const toast_success=document.querySelector('.toast-success')
+const toast_danger=document.querySelector(".toast_danger")
+const close=document.querySelector(".close")
 
 //function to make the post request to the server
 async function postData(){
-    const token=localStorage.getItem('token')
+   const token=localStorage.getItem('token')
 const data={
-     name:fullName.value ,
-     email:customerEmail.value,
-     phone:phoneNumber.value,
-     date:dateTime.value,
-     doctor:doctorname.value,
-     service:selectOption.value,
+   name:fullName.value ,
+   email:customerEmail.value,
+   phone:phoneNumber.value,
+   date:dateTime.value,
+   doctor:doctorname.value,
+   service:selectOption.value,
 }
-       await axios.post('http://localhost:5000/appointment/page',data,{
-        
-         headers:{
-            Authorization:`Bearer ${token}`
-         }
-       })
-         .then((res)=>{
+   await axios.post('https://starclinic.herokuapp.com/appointment/page ',data,{
+      //  http://localhost:5000/appointment/page
+          headers:{        
+             Authorization:`Bearer ${token}`      
+            }  
+           })      
+          .then((res)=>{
           clearform()
+          toast_success.style.display="flex"
+          
          })
          .catch((err)=>{
-            console.log('an error occured')
+            toast_danger.style.display="flex"
          })
    }
 
@@ -49,6 +53,25 @@ const clearform=()=>{
        selectOption.value=""
 }
 
+
+
+//const dateChecker=(date)=>{
+//   let reply=false
+//  if(date < new Date().getDate() || date == new Date().getDate()){
+//    reply
+//  }else{
+//   reply=true
+//  }
+//  return reply
+//}
+
+close.addEventListener("click",()=>{
+  Removenotification()
+})
+const Removenotification=()=>{
+ toast_danger.style.display="hidden"
+ alert("hello")   
+}
 
 
 

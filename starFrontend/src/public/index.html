@@ -1,180 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--TailwindCSS-->
     <link href="./dist/output.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <!--FlatPickr-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>STAR CLINIC</title>
     <link rel="icon" href="./img/starClinic.jpg" alt="" type="image/x-icon" />
 </head>
-<body onload="load()">
-    <div class="h-screen  flex  flex-col">
-        <!--header section-->
-        <div class=" flex justify-between p-2 items-center">
-            <h2 class="md:text-4xl  font-bold text-center text-sky-300 cursor-pointer">STAR CLINIC</h2>
-            <div>
-                <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor-pointer hidden signButton">LOGIN
+
+<body class="" onload="load()">
+    <div class="flex flex-col p-2">
+        <!--header-->
+        <div class="flex items-center">
+            <div class="flex flex-1">
+                <h2 class="md:text-4xl text-2xl font-bold text-center text-sky-300 cursor-pointer">STAR CLINIC</h2>
+            </div>
+            <div class="hidden items-center md:flex">
+                <div>
+                    <ul class="flex items-center cursor-pointer">
+                        <li class="mr-2"><a href="index.html" class=" ">Home</a></li>
+                        <li class="mr-2 "><a href="#">About Us</a></li>
+                        <li class="mr-2 "><a href="#">Store</a></li>
+                        <li class="mr-2 "><a href="#">Contact us</a></li>
+                    </ul>
                 </div>
-                <div class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3  rounded font-bold cursor hidden logOutButton">LogOut</div>
+                <div
+                    class="bg-blue-500 text-white  md:py-1 py-1 items-center px-2 rounded font-bold cursor-pointer hidden signButton">
+                    <i class='bx bx-log-in bx-sm text-white mr-2 font-bold'></i>
+                    LOGIN
+                </div>
+                <div
+                    class="bg-blue-500 text-white md:px-4 md:py-1 py-1 px-3 items-center rounded font-bold cursor-pointer hidden logOutButton">
+                    <i class='bx bx-log-out bx-sm text-white mr-2 font-bold '></i>
+                    LogOut
+                </div>
+            </div>
+            <div class="md:hidden menu flex relative">
+                <div class="showMenu ">
+                    <i class='bx bx-menu bx-md text-gray-400 '></i>
+                </div>
+                <div class="closeMenu hidden">
+                    <i class='bx bx-x bx-md text-gray-400'></i>
+                </div>
+                <!--Drop Down-->
+                <div
+                    class="dropdown hidden absolute top-10  list-none  right-0  divide-gray-100 shadow">
+                    <div class="w-48 text-sm font-medium text-gray-900 bg-white  ">
+                        <a href="./index.html"
+                            class="block py-2 px-4 w-full  rounded-t-lg border-b border-gray-200 cursor-pointer  hover:text-blue-700 ">
+                            Home
+                        </a>
+                        <a href="#"
+                            class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 ">
+                            About Us
+                        </a>
+                        <a href="#"
+                            class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 ">
+                           Store
+                        </a>
+                        <a href="#"
+                            class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 ">
+                           Contact Us
+                        </a>
+                        <div class="py-2 items-center px-4 rounded font-bold cursor-pointer hidden menuSign">
+                            <i class='bx bx-log-in bx-sm  mr-2 font-bold'></i>
+                            LOGIN
+                        </div>
+                        <div class="py-2 items-center px-4 rounded font-bold cursor-pointer hidden menuLogOut">
+                        <i class='bx bx-log-out bx-sm  mr-2 font-bold '></i>
+                            LOGOUT
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hidden justify-center relative">
-            <div id="toast-success"
-                class="flex items-center absolute p-4 mb-4 w-full max-w-xs text-gray-500  rounded-lg shadow-md bg-blue-400"
-                role="alert">
-                <div class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-white rounded-lg">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="sr-only">Check icon</span>
-                </div>
-                <div class="ml-3 text-sm font-normal text-white">Appointment has been booked successfully.</div>
-                <button type="button"
-                    class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg  p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
-                    aria-label="Close">
-                    <span class="sr-only">Close</span>
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-       
         <!--hero-->
-        <div class="flex w-full  mt-4" style="background-image: url('img/bg.webp');">
+        <div class="flex  justify-between mt-4 items-center" style="background-image: url('img/bg.webp');">
             <!--Left Item-->
             <div class="m-4 flex flex-col p-3">
                 <h1 class="text-3xl font-bold mb-4">
                     Lorem ipsum dolor sit amet.
                 </h1>
                 <p class=" max-w-sm text-darkGrayishBlue mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis in perferendis corrupti expedita, alias delectus
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis in perferendis corrupti
+                    expedita, alias
+                    delectus
                     aperiam neque repellat nam
                 </p>
                 <div class="flex mb-4">
-                    <button class="booked p-3 px-6 pt-2 text-white bg-sky-300 rounded-full hover:bg-brightRedLight">See Booked Appointment</button>
+                    <button class="booked p-3 px-6 pt-2 text-white bg-sky-300 rounded-full hover:bg-brightRedLight">See
+                        Booked
+                        Appointment
+                    </button>
                 </div>
             </div>
             <!--Image on right-->
-            <div>
-                <img src="img/vacci.png" alt="">
+            <div class="">
+                <img src="" alt="">
             </div>
         </div>
-        <div>
+        <div class="flex flex-col">
             <h2 class="text-4xl font-bold text-center mt-4 ">
                 WHO ARE WE.
             </h2>
-            <div class="container flex md:flex-row flex-col items-center px-6 mx-auto ">
+            <div class="flex md:flex-row flex-col items-center px-6 mx-auto ">
                 <!--Img on right-->
                 <div class="md:w-1/2 mt-7">
                     <img src="img/health staff.png" alt="">
                 </div>
                 <!--left Item-->
                 <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
-                
+
                     <p class="max-w-sm text-center mt-6 text-darkGrayishBlue md:text-right md:ml-32">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolor molestiae autem hic nobis dignissimos
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolor molestiae autem hic nobis
+                        dignissimos
                         nesciunt dolorem ad, alias in? Ipsa eum ea fuga velit modi quo facilis labore ipsum.
                     </p>
                     <p class="max-w-sm text-center text-darkGrayishBlue md:text-right md:ml-32">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.illum ut mollitia commodi quibusdam delectus, voluptate
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.illum ut mollitia commodi quibusdam
+                        delectus,
+                        voluptate
                         unde placeat sit! Explicabo, voluptas tenetur?
                     </p>
                 </div>
             </div>
         </div>
-        <div class="bg-cover bg-no-repeat max-h-full mb-4" style="background-image: url('./img/blue.jpg');">
-            <h2 class="text-4xl font-bold text-center  mt-4 md:mt-4 mb-10 md:mb-10">
+        <div class="bg-cover bg-no-repeat  mb-4 flex flex-col" style="background-image: url('./img/blue.jpg');">
+            <h2 class="text-4xl font-bold text-center mb-10 md:mt-4">
                 WHAT WE OFFER.
             </h2>
-            <div class="flex items-center">
-                <div class="">
-                    <div>
-                        <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4 ">
-                                    <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                        <div class=""><img src="./img/labTesting.jpg" class="w-32 md:w-32 md:ml-8" alt=""></div>
-                                        <h2 class="text-center mt-8">Laboratory Testing</h2>
-                                    </li>
-                                    <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                        <div class=""><img src="./img/vaccination.jpg" class="w-32  md:w-32 md:ml-8" alt=""></div>
-                                        <h2 class="text-center  mt-8">vaccination</h2>
-                                    </li>
-                                    <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                        <div class=""><img src="./img/treatment.jpg" class="w-32 md:w-24 md:ml-8" alt=""></div>
-                                        <h2 class="text-center mt-8">Treatment of common illness</h2>
-                                    </li>
-                                    <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                        <div class=""><img src="img/dentist.png" class="w-32 md:w-32 md:ml-8" alt=""></div>
-                                        <h2 class="text-center mt-8">Densitory</h2>
-                                    </li>
-                                    <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                        <div class=""><img src="img/mental health.png" class="w-32 md:w-32 md:ml-8" alt=""></div>
-                                        <h2 class="text-center mt-5">Mental Health Services</h2>
-                                    </li>
-                                    <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                        <div class=""><img src="./img/counselling.jpg" class="w-32 md:w-32 md:ml-8" alt=""></div>
-                                        <h2 class="text-center mt-8">Counselling</h2>
-                                    </li>
-                        </ul>
-                    </div>
+            <div class="flex items-center justify-center">
+                <div>
+                    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4 ">
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class=""><img src="./img/labTesting.jpg" class="w-32 md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-8">Laboratory Testing</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class=""><img src="./img/vaccination.jpg" class="w-32  md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center  mt-8">vaccination</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class=""><img src="./img/treatment.jpg" class="w-32 md:w-24 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-8">Treatment of common illness</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class=""><img src="img/dentist.png" class="w-32 md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-8">Densitory</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class=""><img src="img/mental health.png" class="w-32 md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-5">Mental Health Services</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class=""><img src="./img/counselling.jpg" class="w-32 md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-8">Counselling</h2>
+                        </li>
+                    </ul>
                 </div>
-                <!--Image on right-->
-                <div class="md:w-52 w-52 ">
-                    <img src="img/scientist-guy.png" class="md:ml-32 " alt="">
+                <div class="md:w-52 w-52 mb-3">
+                    <img src="img/scientist-guy.png" class=" " alt="">
                 </div>
             </div>
         </div>
-        <div>
+        <div class="">
             <h2 class="text-4xl font-bold text-center  mt-4 md:mt-4">
                 WHY YOU SHOULD CHOOSE STAR CLINIC.
             </h2>
-
-                <!--Img on left-->
+            <!--Grid Container-->
+            <div class="flex items-center justify-center md:flex-row flex-col">
                 <div class="md:w-72 w-64 ">
-                    <img src="img/doctor.png" class="mx-24 mt-20 md:mt-32 md:ml-20 " alt="">
+                    <img src="img/doctor.png" class="" alt="">
                 </div>
-
-                <!--Grid Container-->
-                <div class=" flex  items-center px-6 mx-auto  mt-20 md:flex-row md:-mt-80">
-                    <div class="min-h-screen flex items-center">
-                        <div class="flex-1 max-w-4xl mx-auto ">
-                            <!--Grid-->
-                            <ul class="grid grid-cols-2 gap-4 -mt-56 -mb-32 md:p-16 md:gap-12  md:grid-cols-2 md:ml-96 ">
-                                <li class="bg-white rounded-lg shadow-xl  md:w-44">
-                                    <div class="h-20"><img src="img/rocket.png" class="w-32 ml-10 md:w-32 md:ml-8" alt=""></div>
-                                    <h2 class="text-center mt-8">Advanced Medical Technologies</h2>
-                                </li>
-                                <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                    <div class="h-20"><img src="img/24hr.png" class="w-32 ml-8 md:w-32 md:ml-8" alt=""></div>
-                                    <h2 class="text-center text-sm mt-8">24 hour services</h2>
-                                </li>
-                                <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                    <div class="h-20"><img src="img/doctor1.png" class="w-24 ml-8 md:w-24 md:ml-8" alt=""></div>
-                                    <h2 class="text-center mt-8">Experienced Professionals</h2>
-                                </li>
-                                <li class="bg-white rounded-lg shadow-xl md:w-44">
-                                    <div class="h-20"><img src="img/affordable-price.png" class="w-32 ml-8 md:w-32 md:ml-8" alt="">
-                                    </div>
-                                    <h2 class="text-center mt-8">Affordable Prices</h2>
-                                </li>
-                            </ul>
-                        </div>
-                
-                    </div>
+                <div>
+                    <!--Grid-->
+                    <ul class="grid grid-cols-2 gap-4   md:p-16 md:gap-12 md:ml-10  md:grid-cols-2  ">
+                        <li class="bg-white rounded-lg shadow-xl  md:w-44">
+                            <div class="h-20"><img src="img/rocket.png" class="w-32 ml-10 md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-8">Advanced Medical Technologies</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class="h-20"><img src="img/24hr.png" class="w-32 ml-8 md:w-32 md:ml-8" alt=""></div>
+                            <h2 class="text-center text-sm mt-8">24 hour services</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class="h-20"><img src="img/doctor1.png" class="w-24 ml-8 md:w-24 md:ml-8" alt=""></div>
+                            <h2 class="text-center mt-8">Experienced Professionals</h2>
+                        </li>
+                        <li class="bg-white rounded-lg shadow-xl md:w-44">
+                            <div class="h-20"><img src="img/affordable-price.png" class="w-32 ml-8 md:w-32 md:ml-8"
+                                    alt="">
+                            </div>
+                            <h2 class="text-center mt-8">Affordable Prices</h2>
+                        </li>
+                    </ul>
                 </div>
+            </div>
         </div>
         <!--About US-->
         <!--Testimonials-->
-        <div class=" bg-no-repeat bg-cover  md:max-h-full   " style="background-image: url('./img/ping.jpg');">
+        <div class=" bg-no-repeat bg-cover mt-5 md:max-h-full   " style="background-image: url('./img/ping.jpg');">
             <!-- Container to heading and testm blocks -->
             <div class="max-w-6xl px-5 mx-auto mt-32 text-center">
                 <!-- Heading -->
@@ -192,50 +226,54 @@
                         </p>
                         <h5 class="text-lg font-bold">John Doe</h5>
                     </div>
-        
+
                     <!-- Testimonial 2 -->
-                    <div class=" flex flex-col items-center p-6 space-y-6 rounded-lg mb-10 bg-veryLightGray md:w-1/3  md:flex">
+                    <div
+                        class=" flex flex-col items-center p-6 space-y-6 rounded-lg mb-10 bg-veryLightGray md:w-1/3  md:flex">
                         <img src="img/avatar1.png" class="w-16 -mt-14" alt="" />
                         <p class="text-sm text-darkGrayishBlue">
-                            “Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, delectus velit. Expedita, quisquam
+                            “Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, delectus velit. Expedita,
+                            quisquam
                             atque? Numquam autem quidem suscipit. Doloremque labor.”
                         </p>
                         <h5 class="text-lg font-bold">Jane Doe</h5>
                     </div>
-        
+
                     <!-- Testimonial 3 -->
-                    <div class="flex flex-col items-center p-6 space-y-6 rounded-lg mb-10 bg-veryLightGray md:w-1/3  md:flex">
+                    <div
+                        class="flex flex-col items-center p-6 space-y-6 rounded-lg mb-10 bg-veryLightGray md:w-1/3  md:flex">
                         <img src="./img/profile.jpg" class="w-16 -mt-14" alt="" />
                         <p class="text-sm text-darkGrayishBlue">
-                            “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, libero repudiandae nisi dicta
+                            “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, libero repudiandae nisi
+                            dicta
                             error officia consequuntur, natus digniss.”
                         </p>
                         <h5 class="text-lg font-bold">Jonathan Doe</h5>
-        
+
                     </div>
                 </div>
-        
-        
+
+
             </div>
-        
+
         </div>
-        <div class="mt-2" style="background-image: url('img/bg.webp')">
+        <div class="mt-3" style="background-image: url('img/bg.webp')">
             <h2 class="text-4xl font-bold text-center mb-10 md:pt-4">
                 Request Appointment.
             </h2>
-            <div class="antialiased">
+            <div class="antialiased ">
                 <!-- <div class="flex w-full  justify-center item-center"> -->
                 <!--Flex container-->
-                <div class="container flex flex-col  items-center px-6 mx-auto space-y-0 md:flex-row md:pb-24">
-            
+                <div class="container flex flex-col  items-center px-6 mx-auto  md:flex-row ">
+
                     <!--Img on right-->
-                    <div class="md:w-1/2">
+                    <div class="md:w-1/2 ">
                         <img src="img/contact-us.png" alt="">
                     </div>
-            
+
                     <div
                         class="bg-white rounded-xl shadow-lg p-8  text-darkGrayishBlue md:w-80  md:space-y-6 md:flex-row md:ml-44 ">
-                        <form class=" form flex flex-col space-y-8">
+                        <form class=" form flex flex-col space-y-5">
                             <div>
                                 <input type="text" name="customer_name" placeholder="Full Name"
                                     class="fullName ring-1 ring-gray-600 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300" />
@@ -255,7 +293,8 @@
                                 <input type="" name="doctor_name" placeholder="Doctor's Name"
                                     class="doctorName ring-1 ring-gray-600 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300" />
                             </div>
-                            <label for="countries" class="block mb-2 text-md font-medium text-gray-900">Select an option</label>
+                            <label for="countries" class="block mb-2 text-md font-medium text-gray-900">Select an
+                                option</label>
                             <select id="countries" class="selectOption">
                                 <option selected>Choose Service</option>
                                 <option value="RADIOLOGY">RADIOLOGY</option>
@@ -272,44 +311,36 @@
                             <input type="datetime-local"
                                 class=" dateTime form-control outline-none focus:ring-teal-300 focus:ring-2 rounded-md"
                                 placeholder="Select DateTime" name="customer_date">
-                            <button type="submit" class="submitButton bg-teal-500  hover:bg-teal-700 font-bold p-2 rounded-md">Book
+                            <button type="submit"
+                                class="submitButton bg-teal-500  hover:bg-teal-700 font-bold p-2 rounded-md">Book
                                 Appointment</button>
                         </form>
-            
-            
-            
+                        <div class="bg-blue-400  p-3 sm:p-1 mt-2 hidden items-center rounded toast-success">
+                            <p class="flex-1 text-white">Appointment has been booked successfully</p>
+                            <i class='bx bx-x bx-sm text-black close'></i>
+                        </div>
+                        <div class="p-3 sm:p-1 mt-2 hidden items-center rounded toast-danger"
+                            style="	background-color: rgb(185 28 28);">
+                            <p class="flex-1 text-white">Appointment wasn't booked Please try again</p>
+                            <i class='bx bx-x bx-sm text-black close'></i>
+                        </div>
                     </div>
+
                 </div>
-            
+
             </div>
         </div>
-           <!--Map-->
-           <div class="flex mt-2 items-center justify-center md:justify-around">
-            <div>
-                <h4>StarClinic™ Limited</h4>
-                <p>Oyarifa</p>
-                <p class="text-gray-500 cursor-pointer">Tel: <span class="text-gray-400">+233 (0) 555555555</span></p>
-                <p class="text-gray-500 cursor-pointer">Email:<span class="text-blue-500 ml-2 ">starclinic@gmail.com</span></p>
-            </div>
-            <div class="mapouter ">
-                <div class="gmap_canvas h-96 w-96"><iframe class=" h-96 w-1/2 md:w-96"  id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=kuottam%20estate&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                        scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br>
-                </div>
-            </div>
-           </div>
-        <footer class="p-4 mt-4 bg-white sm:p-6 dark:bg-gray-900">
+        <footer class="p-4 mt-4  sm:p-6 bg-gray-900">
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
             <div class="sm:flex sm:items-center sm:justify-between flex  justify-end items-center">
-                <span class="text-sm text-gray-500 sm:text-center flex items-center cursor-pointer dark:text-gray-400">© 2022 <p
-                        class="hover:underline text-lg">StarClinic™</p>. All Rights Reserved.
+                <span class="text-sm text-gray-500 sm:text-center flex items-center cursor-pointer dark:text-gray-400">©
+                    2022 <p class="hover:underline text-lg">StarClinic™</p>. All Rights Reserved.
                 </span>
             </div>
         </footer>
     </div>
     <!--FlatPickr Js-->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    
     <script>
         config = {
             enableTime: true,
@@ -329,8 +360,6 @@
     <script src="./index.js"></script>
     <script src="./submitAppointment.js"></script>
     <!--Start of Tawk.to Script-->
-    <!--Start of Tawk.to Script-->
-    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
         (function () {
@@ -344,22 +373,6 @@
     </script>
     <!--End of Tawk.to Script-->
     <!--End of Tawk.to Script-->
-    <!--mapbox-->
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiZW1tYW51ZWwtYiIsImEiOiJjbDh4NWE2eHQwM2IxM3VwYXF0OHQ1cmliIn0.gtNi6yY9Opq37mLjSQMDag';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-            style: 'mapbox://styles/mapbox/streets-v11', // style URL
-            center: [0.1739, 5.7556], // starting position [lng, lat]
-            zoom: 5, // starting zoom
-            //projection: 'globe' // display the map as a 3D globe
-        });
-
-        map.on('style.load', () => {
-            map.setFog({}); // Set the default atmosphere style
-        });
-    </script>
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
@@ -384,4 +397,5 @@
         const analytics = getAnalytics(app);
     </script>
 </body>
+
 </html>
