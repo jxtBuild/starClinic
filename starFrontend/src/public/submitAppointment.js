@@ -22,8 +22,8 @@ const data={
    doctor:doctorname.value,
    service:selectOption.value,
 }
-   await axios.post('https://starclinic.herokuapp.com/appointment/page ',data,{
-      //  http://localhost:5000/appointment/page
+   await axios.post('http://localhost:5000/appointment/page ',data,{
+      //    https://starclinic.herokuapp.com/appointment/page
           headers:{        
              Authorization:`Bearer ${token}`      
             }  

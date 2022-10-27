@@ -20,8 +20,8 @@ const tabledata=document.querySelector('.tabledata')
 
 const loadUserBookedAppointments= ()=>{
     const token=localStorage.getItem('token')
-    axios.get('https://starclinic.herokuapp.com/appointment',{
-        // http://localhost:5000/appointment
+    axios.get('http://localhost:5000/appointment ',{
+        //  https://starclinic.herokuapp.com/appointment
            headers:{
             Authorization:`Bearer ${token}`
            }
@@ -81,8 +81,8 @@ appointmentTable.addEventListener("click",async(e)=>{
      const el = e.target
     const id=el.dataset.id
     const token=localStorage.getItem('token')
-    axios.delete(`https://starclinic.herokuapp.com/appointment/${id}`,{
-        //http://localhost:5000/appointment/${id}
+    axios.delete(`http://localhost:5000/appointment/${id} `,{
+        // https://starclinic.herokuapp.com/appointment/${id}
         headers:{
             Authorization:`Bearer ${token}`
            }
