@@ -5,9 +5,8 @@ const nextbutton=document.querySelector('.nextbutton')
 
 
 nextbutton.addEventListener("click",()=>{
-    alert("helllo")
-    axios.get("https://starclinic.herokuapp.com/authentication/reset-Password ")
-    // http://localhost:5000/authentication/reset-Password
+    axios.get("http://localhost:5000/authentication/reset-Password ")
+    //   https://starclinic.herokuapp.com/authentication/reset-Password
     .then((res)=>{
         console.log(res)
     })
