@@ -39,8 +39,8 @@ loginButton.addEventListener("click",()=>{
     email=LoginEmail.value
     password=LoginPassword.value
     const profile={email,password}
-    axios.post("http://localhost:5000/authentication/login",profile)
-    //     https://starclinic.herokuapp.com/authentication/login 
+    axios.post("https://starclinic.herokuapp.com/authentication/login",profile)
+    //            http://localhost:5000/authentication/login
     .then((res)=>{
          const {data}=res
          const name=data.user.name
@@ -50,9 +50,11 @@ loginButton.addEventListener("click",()=>{
          setTimeout(()=>{
          window.location.href="./index.html"
         },3000)  
+        console.log(res);
      })
      .catch((error)=>{
-          loginwarn.style.display="flex"
+          alert(error)
+          loginwarn.style.display="block"
      })
   
 })
@@ -69,11 +71,11 @@ signButton.addEventListener("click",()=>{
  password=signPassword.value 
  gender=GenderFunction()
  const data={firstname,lastname,gender,email,password}
- axios.post("http://localhost:5000/authentication/register  ",data)
- //   https://starclinic.herokuapp.com/authentication/register
+ axios.post("  https://starclinic.herokuapp.com/authentication/register ",data)
+ //    http://localhost:5000/authentication/register
  .then((res)=>{
        if(res){
-          success.style.display="flex"
+          success.style.display="block"
           clearform()
        }
        setTimeout(()=>{
@@ -84,7 +86,7 @@ signButton.addEventListener("click",()=>{
  .catch((err)=>{
     console.log(err)
     if(err){
-       signwarn.style.display="flex"
+       signwarn.style.display="block"
     }
  })
  
@@ -103,7 +105,7 @@ const clearform=()=>{
 const clearLoginform=()=>{
    LoginEmail.value=""
    LoginPassword.value=""
-   loginsuccess.style.display='flex'
+   loginsuccess.style.display='block'
 }
 
 const GenderFunction=()=>{
