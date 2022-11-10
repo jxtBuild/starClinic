@@ -54,8 +54,8 @@ closeMenu.addEventListener(("click"),()=>{
       showMenu.style.display="block"
       closeMenu.style.display="none"
      }
-})
-
+   })
+   
 const CheckToken=()=>{
     const token=localStorage.getItem('token')
     if(token){
@@ -64,8 +64,6 @@ const CheckToken=()=>{
  window.location.href="./MainLogin.html"
     }
 }
-
-
 
 const UserAuthentication=()=>{
     const token=localStorage.getItem('token')
@@ -77,7 +75,6 @@ const UserAuthentication=()=>{
       menuSign.style.display="flex"
    }
 }
-
 const LogOut=()=>{
  localStorage.removeItem('token')
    location.reload()

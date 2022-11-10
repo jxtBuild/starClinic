@@ -20,8 +20,8 @@ const tabledata=document.querySelector('.tabledata')
 
 const loadUserBookedAppointments= ()=>{
     const token=localStorage.getItem('token')
-    axios.get('http://localhost:5000/appointment ',{
-        //  https://starclinic.herokuapp.com/appointment
+    axios.get('https://starclinic.herokuapp.com/appointment ',{
+        //   http://localhost:5000/appointment
            headers:{
             Authorization:`Bearer ${token}`
            }
@@ -33,7 +33,7 @@ const loadUserBookedAppointments= ()=>{
        profile.innerHTML=localStorage.getItem('user')
         numberAppointment.innerHTML=data.total
       const Information=appointment.map((items)=>{
-              const {date,service,doctor,status,_id:appointmentId}=items
+              const {date,service,doctor,status,_id:appointmentId,time}=items
            return `  
                 <tr class="bg-white border-b  hover:bg-gray-100 tabledata">
                               <td class="p-3 w-4">
@@ -46,6 +46,9 @@ const loadUserBookedAppointments= ()=>{
                               <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap date">
                                   ${date}
                               </td>
+                              <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap date">
+                                  ${time}
+                              </td>
                               <td class="py-4 px-6 service">
                                   ${service}
                               </td>
@@ -57,8 +60,8 @@ const loadUserBookedAppointments= ()=>{
                               </td>
                               
                                     <td class="py-3 px-6   items-center">
-                                         <a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>
-                                            ${status=="canceled"?" " :`<button class="font-medium text-red-600 ml-3 delete-btn" data-id="${appointmentId}">Cancel</button>`}
+                                        ${status=="canceled"?"":`<a href="#" class="font-medium text-blue-600  hover:underline">Edit</a>`}
+                                         ${status=="canceled"?" " :`<button class="font-medium text-red-600 ml-3 delete-btn" data-id="${appointmentId}">Cancel</button>`}
                                     </td>
                           </tr>
                           `
@@ -81,8 +84,8 @@ appointmentTable.addEventListener("click",async(e)=>{
      const el = e.target
     const id=el.dataset.id
     const token=localStorage.getItem('token')
-    axios.delete(`http://localhost:5000/appointment/${id} `,{
-        // https://starclinic.herokuapp.com/appointment/${id}
+    axios.delete(`https://starclinic.herokuapp.com/appointment/${id} `,{
+        //  http://localhost:5000/appointment/${id}
         headers:{
             Authorization:`Bearer ${token}`
            }

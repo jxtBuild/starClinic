@@ -317,12 +317,12 @@
                         </form>
                         <div class="bg-blue-400  p-3 sm:p-1 mt-2 hidden items-center rounded toast-success">
                             <p class="flex-1 text-white">Appointment has been booked successfully</p>
-                            <i class='bx bx-x bx-sm text-black close'></i>
+                            <i class='bx bx-x bx-sm text-white close'></i>
                         </div>
-                        <div class="p-3 sm:p-1 mt-2 hidden items-center rounded toast-danger"
+                        <div class="p-3  mt-2 hidden items-center rounded toast-danger"
                             style="	background-color: rgb(185 28 28);">
                             <p class="flex-1 text-white">Appointment wasn't booked Please try again</p>
-                            <i class='bx bx-x bx-sm text-black close'></i>
+                            <i class='bx bx-x bx-sm text-white close'></i>
                         </div>
                     </div>
 
@@ -346,7 +346,7 @@
             enableTime: true,
             dateFormat: "Y-m-d H:i",
             altInput: true,
-            minDate: "today",
+            minDate: "tomorrow",
             altFormat: "F j, Y (h:S K)"
         }
         flatpickr("input[type=datetime-local]", config);

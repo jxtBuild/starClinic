@@ -6,8 +6,8 @@ const message=document.querySelector(".message")
 nextbutton.addEventListener("click",()=>{
     email=Checkemail.value
     const data={email}
-    axios.post("http://localhost:5000/authentication/passwordchange",data)
-    //    https://starclinic.herokuapp.com/authentication/passwordchange
+    axios.post("https://starclinic.herokuapp.com/authentication/passwordchange",data)
+    //     http://localhost:5000/authentication/passwordchange
     .then((res)=>{
         message.innerHTML=res.data.msg
     })
